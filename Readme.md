@@ -8,8 +8,7 @@ Changelog
 =========
 
  - September 2019: First online release
- - December  2012: Start release
-
+ - December  2012: Starting the development
 
 License
 =======
