@@ -1,0 +1,18 @@
+1.00 2.00 ; [CX3]=[OX1] || [CX3]=[SX1] # sp2 carbon C=O and C=S  Es.: c1ccccc1C=O
+1.00 2.00 ; [CX2]=[CX2] # sp2 carbon aliphatic C=C  Es.
+1.00 2.00 ; c # aromatic carbon  Es.: c1ccccc1
+1.00 2.00 ; [NX1] # sp1 nitrogen Es.: C#N
+1.00 2.00 ; [NX3](C)(C)(C) # sp3 nitrogen bonded to 3 carbon substituent Es.: CCN(CC)CC
+1.00 2.00 ; [N+](=C)(C)(C) # sp2 nitrogen bonded to 3 carbon substituent
+1.00 2.00 ; [$([NX3](=O)=O),$([NX3+](=O)[O-])][!#8]  # sp2 nitrogen bonded to oxigen (nitro) Es.: CC1=C(C=C(C=C1[N+](=O)[O-])[N+](=O)[O-])[N+](=O)[O-]
+1.00 2.00 ; [OX2H] # sp3 hydroxyl
+1.00 2.00 ; [SX1]=[cX3] # sp2 sulfur
+1.00 2.00 ; [SX2] # sp3 sulfur in -S-R and -S-S-
+1.00 2.00 ; [SX4] # hypervalent sulfur with 4 substituents Es. OS(=O)(=O)O
+1.00 2.00 ; [PX3] # sp3 phosphorus with 3 substituents
+1.00 2.00 ; [PX4] # hypervalent phosphorus with 5 substituents Es. OP(=O)(O)O
+1.00 2.00 ; [Hc] # hydrogen on aromatic carbon
+1.00 2.00 ; [HO] # hydrogen on oxygen Es. c1ccccc1C=O(O)
+1.00 2.00 ; [HP] # hydrogen on phosphorus
+1.00 2.00 ; [Cl] # Any clorine
+1.00 2.00 ; [I] # Any iodine

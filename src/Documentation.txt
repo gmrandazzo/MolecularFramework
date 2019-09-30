@@ -1,0 +1,14 @@
+
+- Descriptors types:
+  * atomdesc.{h,c}: descriptors related to the atoms type, charge, connectivity, and so on (1D, 2D, 3D)
+  * elstaticdesc.{h,c}: descriptors related to the electrostatic fields (3D)
+  * geomdesc.{h,c}: descriptors related to the molecular geometry (3D)
+  * miscdesc.{h,c}: mixed descriptors; structural descriptors, topological descriptors (1D, 2D)
+  * shapedesc.{h,c}: descriptors related to the molecular shape (3D)
+
+
+- Molecular alignment
+
+- Molecular weighted fingerprint
+
+
