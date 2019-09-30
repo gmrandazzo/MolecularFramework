@@ -1,4 +1,4 @@
-set(MOLDESC_C_SRCS version.c
+set(MOLECULARFRAMEWORK_C_SRCS version.c
                    misc.c
                    periodic_table.c
                    massanalysis.c
@@ -15,7 +15,7 @@ set(MOLDESC_C_SRCS version.c
                    mol3Daligner.c
                    mol3Dfields.c)
 
-set(MOLDESC_C_H version.h
+set(MOLECULARFRAMEWORK_C_H version.h
                 molecule.h
                 misc.h
                 periodic_table.h
@@ -49,7 +49,7 @@ add_library(libcppwrap SHARED ${CPPWRAP_CPP_SRC} ${CPPWRAP_CPP_H})
 #target_link_libraries(libcppwrap m ${RDKIT_LIBRARIES})
 target_link_libraries(libcppwrap m)
 
-add_library(libmoldesc SHARED ${MOLDESC_C_SRCS} ${MOLDESC_C_H})
+add_library(libmoldesc SHARED ${MOLECULARFRAMEWORK_C_SRCS} ${MOLDESC_C_H})
 set_target_properties(libmoldesc PROPERTIES OUTPUT_NAME "moldesc")
 set_property(TARGET libmoldesc PROPERTY LINKER_LANGUAGE C)
 target_link_libraries(libmoldesc m ${LIBSCIENTIFIC_LIBRARY} libcppwrap)
@@ -58,7 +58,7 @@ install(TARGETS libmoldesc LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
                       ARCHIVE DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
                       RUNTIME DESTINATION bin)
 
-install(FILES ${MOLDESC_C_H} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/moldesc)
+install(FILES ${MOLECULARFRAMEWORK_C_H} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/moldesc)
 
 add_subdirectory(tests)
 add_subdirectory(bin_src)

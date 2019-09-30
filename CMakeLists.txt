@@ -1,4 +1,4 @@
-project(MolDesc C CXX)
+project(MolecularFramework C CXX)
 cmake_minimum_required(VERSION 2.6)
 set(AUTHOR "Giuseppe Marco Randazzo")
 set(VERSION "0.1.0")
