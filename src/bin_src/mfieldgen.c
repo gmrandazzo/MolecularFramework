@@ -27,8 +27,8 @@ int main(int argc, char **argv)
   /*PrintFFParams(ff);*/
 
   MOLECULE molecule;
-  printf("Load molecule %s ...\n", molecule.molname);
   NewMOL2Molecule(&molecule, argv[1]);
+  printf("Load molecule %s ...\n", molecule.molname);
   AtomAnalyzer(&molecule, 5);
 
   int formal_charge = atoi(argv[2]);

@@ -54,9 +54,19 @@ double Align3DConformations(MOLECULE m1, MOLECULE m2);
  */
 double Align3DPharmacophore(MOLECULE m1, MOLECULE m2, uivector *aid1, uivector *aid2);
 
-double SimplexAlign3DConformations(MOLECULE m1, MOLECULE m2);
+/*
+ * Align two different molecules (molecule m1 to molecule m2) according
+ * to most distant barycenter atoms 
+ * The function return the alignment rmsd.
+ */
+double Align3DShapes(MOLECULE m1, MOLECULE m2);
 
-matrix *_Aconf_;
-matrix *_Bconf_;
+/*
+ * Align two different molecules (molecule m1 to molecule m2) according
+ * to their shape calculated using VDW volumes
+ * The function return the alignment rmsd.
+ */
+double Align3DOnVDWShapes(MOLECULE m1, MOLECULE m2);
+
 
 #endif

@@ -8,8 +8,11 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <scientific.h>
+
 #include "../molecule.h"
 #include "../atomanalysis.h"
+#include "../cppwrap.h"
 
 
 int main(int argc, char **argv)
@@ -19,14 +22,18 @@ int main(int argc, char **argv)
     return -1;
   }
   MOLECULE molecule;
+  dvector *fp;
   NewMOL2Molecule(&molecule, argv[1]);
   AtomAnalyzer(&molecule, atoi(argv[2]));
+  
   /* Header
    * Molname_atomname_hybrid charge C N O S P H F Cl Br I S SP SP2 SP3 SP3D SP3D2 AR OTHER >>
    * >> N * (c_sp c_sp2 c_sp3 c_ar n_sp n_sp2 n_ar o_sp2 o_sp3 o_ar s_sp2 s_sp3 s_sp3d s_sp3d2 s_ar p f cl br i other)
    */
 
   for(int i = 0; i < molecule.n_atoms; i++){
+    initDVector(&fp);
+    atomToFloatFingerPrint(&molecule, atoi(argv[2]), &fp);
     printf("%s_%d_%s_", molecule.molname, i+1, molecule.atoms[i].asymbl);
     //printf("%s ", molecule.atoms[i].type);
 
@@ -129,18 +136,15 @@ int main(int argc, char **argv)
       printf("0,0,0,0,0,0,0,1,0,");
     }
     else{
-        printf("0,0,0,0,0,0,0,0,1,");
+      printf("0,0,0,0,0,0,0,0,1,");
     }
 
 
-    /*int c = 0;
-    while(molecule.atoms[i].ainfo.atype_hash[c] != '\0'){
-      //printf("%c ", molecule.atoms[i].ainfo.atype_hash[c]);
-      c++;
+    for(int j = 0; j < fp->size-1; j++){
+      printf("%.4f,", fp->data[j]);
     }
-    printf("%d \n", c);*/
-    printf("%s\n", molecule.atoms[i].ainfo.atype_hash);
-
+    printf("%.4f\n", fp->data[fp->size-1]);
+    DelDVector(&fp);
   }
   DelMolecule(&molecule);
   return 0;

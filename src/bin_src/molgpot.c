@@ -20,8 +20,8 @@ int main(int argc, char **argv)
   }
 
   MOLECULE molecule;
-  printf("Load molecule %s ...\n", molecule.molname);
   NewMOL2Molecule(&molecule, argv[1]);
+  printf("Load molecule %s ...\n", molecule.molname);
 
   int grid_resolution = atoi(argv[3]);
   int grid_size = atoi(argv[4]);

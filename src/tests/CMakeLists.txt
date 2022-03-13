@@ -14,6 +14,7 @@ set(TestGetShapePoints_SRC testGetShapePoints.c)
 set(TestGetEMWMWfromMolecularFormula_SRC  testGetEMWMWfromMolecularFormula.c)
 set(TestAlign3DConformations_SRC testAlign3DConformations.c)
 set(TestAlign3DPharmacophore_SRC testAlign3DPharmacophore.c)
+set(TestAlign3DShapes_SRC testAlign3DShapes.c)
 set(TestConfRMSD_SRC testRMSDConformations.c)
 set(TestMol2RandRotation_SRC testMol2RandRotation.c)
 set(TestSphericalInteractionField_SRC testSphericalInteractionField.c)
@@ -95,6 +96,10 @@ add_test(NAME testAlign3DConformations COMMAND testAlign3DConformations ../../..
 add_executable(testAlign3DPharmacophore ${TestAlign3DPharmacophore_SRC})
 target_link_libraries(testAlign3DPharmacophore libmoldesc)
 add_test(NAME testAlign3DPharmacophore COMMAND testAlign3DPharmacophore ../../../src/tests/Data/A.mol2 ../../../src/tests/Data/B.mol2 ../../../src/tests/Data/A_B.txt)
+
+add_executable(testAlign3DShapes ${TestAlign3DShapes_SRC})
+target_link_libraries(testAlign3DShapes libmoldesc)
+add_test(NAME testAlign3DShapes COMMAND testAlign3DShapes ../../../src/tests/Data/A.mol2 ../../../src/tests/Data/B.mol2)
 
 add_executable(testRMSDConformations ${TestConfRMSD_SRC})
 target_link_libraries(testRMSDConformations libmoldesc)

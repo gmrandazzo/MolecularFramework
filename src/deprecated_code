@@ -1,0 +1,137 @@
+double Align3DShapes_(MOLECULE m1, MOLECULE m2)
+{
+  matrix *A, *B, *R, *A_aligned_T;
+  dvector *t;
+  double best_rmsd = 9999.;
+  matrix *R_best;
+  dvector *t_best;
+  int best_it = 0;
+  SHAPEPNT *shap1;
+  SHAPEPNT *shap2;
+  uivector *aid1, *aidx1;
+  uivector *aid2, *aidx2;
+  
+
+  getShapePoints(m1, &shap1, vanderwaals);
+  getShapePoints(m2, &shap2, vanderwaals);
+
+  /* To align the whole m1 molecule we need the rotation matrix R and translation vector t */
+  initMatrix(&R_best);
+  initDVector(&t_best);
+
+  /* 1)Calculate the centroids */
+  /* Calculate centroids from molecules
+  *  N.B.: molecules must have same number of atoms!
+  */
+
+  NewMatrix(&A, aid1->size, 3);
+  NewMatrix(&B, aid2->size, 3);
+
+  /* 2) Finding the optimal rotation */
+  /* Select the pharmacophoric atoms to align */
+  for(int i = 0; i < aid1->size; i++){
+    A->data[i][0] = m1.atoms[aid1->data[i]-1].coord.x;
+    A->data[i][1] = m1.atoms[aid1->data[i]-1].coord.y;
+    A->data[i][2] = m1.atoms[aid1->data[i]-1].coord.z;
+
+    B->data[i][0] = m2.atoms[aid2->data[i]-1].coord.x;
+    B->data[i][1] = m2.atoms[aid2->data[i]-1].coord.y;
+    B->data[i][2] = m2.atoms[aid2->data[i]-1].coord.z;
+
+    printf("%s with %s\n",  m1.atoms[aid1->data[i]-1].type, m2.atoms[aid2->data[i]-1].type);
+  }
+
+
+  matrix *A_p;
+  NewMatrix(&A_p, A->row, A->col);
+  /* run the calcuation doing different row permutation in A_T */
+  int p[6][3] = {{1,2,3}, {1,3,2}, {2,1,3}, {2,3,1}, {3,1,2}, {3,2,1}};
+
+  int iter = 0;
+  while(iter < 100){
+    for(int it = 0; it < 6; it++){
+      initMatrix(&R);
+      initDVector(&t);
+      for(int i = 0; i < A->row; i++){
+        for(int j = 0; j < A->col; j++){
+          A_p->data[i][j] = A->data[i][p[it][j]-1];
+        }
+      }
+
+      /* fit A to B so calculate the rotation matrix R and the translation vector t*/
+      RotoTranslation(A_p, B, &R, &t);
+
+      /* Now change the coordinates of the pharmacophore 1 using R and t
+       * in order to make effective the alignment to the pharmacophore 2*/
+      matrix *A_T;
+      NewMatrix(&A_T, A->col, A->row);
+      MatrixTranspose(A_p, A_T);
+
+      matrix *A_aligned_T_tmp;
+      initMatrix(&A_aligned_T_tmp);
+
+      ComputeCoordinates(A_T, R, t, &A_aligned_T_tmp);
+
+      DelMatrix(&A_T);
+
+      double rmsd = RMSD(A_aligned_T_tmp, B);
+
+      /*printf("TMP RMSD iter %d %f\n", iter, rmsd);*/
+      if(rmsd < best_rmsd){
+         best_rmsd = rmsd;
+         MatrixCopy(R, &R_best);
+         DVectorCopy(t, &t_best);
+         best_it = it;
+      }
+      DelMatrix(&A_aligned_T_tmp);
+      DelDVector(&t);
+      DelMatrix(&R);
+    }
+    iter++;
+  }
+
+  DelMatrix(&A_p);
+  DelMatrix(&A);
+  DelMatrix(&B);
+
+  /* Now change the coordinates to m1 with R and t
+   * in order to make effective the alignment to m2 */
+  matrix *Am1;
+  NewMatrix(&Am1, m1.n_atoms, 3);
+
+  for(int i = 0; i < m1.n_atoms; i++){
+    Am1->data[i][0] = m1.atoms[i].coord.x;
+    Am1->data[i][1] = m1.atoms[i].coord.y;
+    Am1->data[i][2] = m1.atoms[i].coord.z;
+  }
+
+  matrix *A_T;
+  NewMatrix(&A_T, 3, m1.n_atoms);
+
+  for(int i = 0; i < m1.n_atoms; i++){
+    for(int j = 0; j < 3; j++){
+      A_T->data[j][i] = Am1->data[i][p[best_it][j]-1];
+    }
+  }
+  DelMatrix(&Am1);
+
+  NewMatrix(&A_aligned_T, 3, m1.n_atoms);
+
+  ComputeCoordinates(A_T, R_best, t_best, &A_aligned_T);
+
+  DelMatrix(&A_T);
+
+  for(int i = 0; i < m1.n_atoms; i++){
+    m1.atoms[i].coord.x = A_aligned_T->data[0][i];
+    m1.atoms[i].coord.y = A_aligned_T->data[1][i];
+    m1.atoms[i].coord.z = A_aligned_T->data[2][i];
+  }
+
+  /*printf("RMSD: % 3.4f\n", best_rmsd);*/
+  DelMatrix(&A_aligned_T);
+  DelMatrix(&R_best);
+  DelDVector(&t_best);
+  deleteShapePoints(&shap1);
+  deleteShapePoints(&shap2);
+  return best_rmsd;
+}

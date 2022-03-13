@@ -15,13 +15,13 @@
 int main(int argc, char **argv)
 {
   if(argc != 5){
-    printf("\nUsage %s file.mol2 [grid resolution] [grid size] outfield.dx\n\n", argv[0]);
+    printf("\nUsage %s file.mol2 [N voxel points (INT)] [Angstrom grid size (INT)] outfield.dx\n\n", argv[0]);
     return -1;
   }
 
   MOLECULE molecule;
-  printf("Load molecule %s ...\n", molecule.molname);
   NewMOL2Molecule(&molecule, argv[1]);
+  printf("Load molecule %s ...\n", molecule.molname);
 
   int grid_resolution = atoi(argv[2]);
   int grid_size = atoi(argv[3]);

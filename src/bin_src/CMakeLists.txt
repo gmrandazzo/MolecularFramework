@@ -11,6 +11,7 @@ set(GENMOLGPOT_SRC molgpot.c)
 set(GENMOLLJPOT_SRC molljpot.c)
 set(MOLEPOT3DDESC_SRC molepot3Ddesc.c)
 set(MOLEPOT3DSPHERICALDESC_SRC molepot3DSphericalDesc.c)
+set(MOLEPOTVS_SRC molepotVS.c)
 set(MOLGPOT3DDESC_SRC molgpot3Ddesc.c)
 set(MOLGPOT3DSPHERICALDESC_SRC molgpot3DSphericalDesc.c)
 set(MOLLJPOT3DDESC_SRC molljpot3Ddesc.c)
@@ -71,6 +72,9 @@ target_link_libraries(MolLJPot3DDesc libmoldesc)
 
 add_executable(MolEPot3DSphericalDesc ${MOLEPOT3DSPHERICALDESC_SRC})
 target_link_libraries(MolEPot3DSphericalDesc libmoldesc)
+
+add_executable(MOLEpotVS ${MOLEPOTVS_SRC})
+target_link_libraries(MOLEpotVS libmoldesc)
 
 add_executable(MolGPot3DSphericalDesc ${MOLGPOT3DSPHERICALDESC_SRC})
 target_link_libraries(MolGPot3DSphericalDesc libmoldesc)

@@ -33,6 +33,7 @@ typedef struct{
   int valence_electrons;
   int lonepairs;
   int n_Others;
+  int n_B;
   int n_Cl;
   int n_F;
   int n_Br;

@@ -28,6 +28,7 @@
 #include <vector>
 #include <sstream>
 #include <cstring>
+#include <cmath>
 
 //#include "RingSearch.h"
 #include "ringsearch.h"
@@ -36,6 +37,7 @@
 #include "molecule.h"
 #include "graphanalysis.h"
 #include "geomanalysis.h"
+#include "scientific.h"
 
 
 using namespace std;
@@ -443,6 +445,7 @@ void atomToFingerPrint(MOLECULE *molecule, int depth_max)
     molecule->atoms[i].ainfo.atype_hash = strdup(sum_fpstr.c_str());
   }
 }
+
 
 /*void Align3DConformations(MOLECULE *from, MOLECULE *to)
 {

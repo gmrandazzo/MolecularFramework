@@ -36,7 +36,7 @@ int main(int argc, char **argv)
   initUIVector(&aidB);
 
   int j;
-  char l[200], *tl;
+  char l[2048], *tl;
   FILE *fi;
   if((fi = fopen (argv[3], "r")) == NULL){
      printf ("File %s not found!!!", argv[3]);

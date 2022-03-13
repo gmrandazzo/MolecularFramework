@@ -80,6 +80,7 @@ void AtomAnalyzer(MOLECULE *molecule, size_t fp_bond_max)
   for(i = 0; i < molecule->n_atoms; i++){
     /* Initializations of atominfo! */
     molecule->atoms[i].ainfo.n_Others = 0;
+    molecule->atoms[i].ainfo.n_B = 0;
     molecule->atoms[i].ainfo.n_Cl = 0;
     molecule->atoms[i].ainfo.n_F = 0;
     molecule->atoms[i].ainfo.n_Br = 0;
@@ -147,6 +148,9 @@ void AtomAnalyzer(MOLECULE *molecule, size_t fp_bond_max)
         }
         else if(strcmp(atomsym, "Cl") == 0){
           molecule->atoms[i].ainfo.n_Cl += 1;
+        }
+        else if(strcmp(atomsym, "B") == 0){
+          molecule->atoms[i].ainfo.n_B += 1;
         }
         else{
           /* WARNING! ATOM TYPE NOT SPECIFIED!*/

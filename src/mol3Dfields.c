@@ -1204,22 +1204,36 @@ double LJPotential(MOLECULE molecule,
    * Where:
    * r is the distance of atom i to the point k
    * epsilon is the potential depth
-   * sigma is the sphere ray
+   * sigma is the sphere diameter
    * ConstAtom_i is the empiric constant for the i atom
+   * 
    */
   int i;
   /*If the point is not compenetrating any atoms*/
   if(PointIsCompenetrating(molecule, px, py, pz) == 0){
     double pot = 0.f;
     for(i = 0; i < molecule.n_atoms; i++){
-      /* we should add the atom probe radius to simulate the sphere contact*/
+      /* we add the atom probe radius to simulate the sphere contact*/
       double dp_atom = GetDistance(px, py, pz,
                                    molecule.atoms[i].coord.x,
                                    molecule.atoms[i].coord.y,
                                    molecule.atoms[i].coord.z);
-
       double eps_i = getGenericAProperty(molecule.atoms[i].asymbl, epsilon);
       double sigma_i = getGenericAProperty(molecule.atoms[i].asymbl, sigma);
+      
+      /*
+      * Normally to reduce the computational time, the L-J interaction 
+      * is computed when the distance r divided with the sphere diameter sigma 
+      * is <= 2.5. This approximation is known to be the "Truncated (and shifted) form
+      * of L-J potential"
+      *
+      * if(dp_atom/sigma_i <= 2.5){
+      *   pot += 4.f*eps_i* (pow((sigma_i/dp_atom), 12) - pow((sigma_i/dp_atom), 6));
+      * }
+      * else{
+      *     return pot;
+      * }
+      */
       pot += 4.f*eps_i* (pow((sigma_i/dp_atom), 12) - pow((sigma_i/dp_atom), 6));
     }
     return pot;

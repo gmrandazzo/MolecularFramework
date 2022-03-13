@@ -1,11 +1,12 @@
 project(MolecularFramework C CXX)
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 set(AUTHOR "Giuseppe Marco Randazzo")
 set(VERSION "0.1.0")
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules/")
 #find_package(RDKit)
 find_package(Libscientific)
+#message(STATUS "${LIBSCIENTIFIC_INCLUDE_DIR}")
 
 set(CMAKE_MACOSX_RPATH 1)
 
@@ -47,8 +48,8 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu99 -Wall")
 
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 
-link_directories("/usr/local/lib")
-include_directories("/usr/local/include")
+link_directories("/usr/lib" "/usr/local/lib" ${LIBSCIENTIFIC_LIB_DIR})
+include_directories("/usr/lib" "/usr/local/include" ${LIBSCIENTIFIC_INCLUDE_DIR})
 
 #include_directories(${RDKIT_INCLUDE_DIR})
 

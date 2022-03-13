@@ -264,7 +264,7 @@ void GetMoleculaLenght(MOLECULE molecule, double* lenght)
 
 
 /*FP array position*/
-#define MAX_3DFP_ATOMS 25
+#define MAX_3DFP_ATOMS 26
 #define TYPEDIM 32
 
 struct atom_types{
@@ -297,7 +297,8 @@ static struct atom_types fp_atom_tab[MAX_3DFP_ATOMS] = {
   {"F", 21},
   {"Cl", 22},
   {"Br", 23},
-  {"I", 24}
+  {"I", 24},
+  {"Se", 25}
   /*
   {"Li", 5},
   {"Na", 5},
@@ -508,7 +509,7 @@ void GetAngleSumFingerprint(MOLECULE molecule, int atom_id, dvector **fp)
 
   /*
    int disc_angle = 5;
-  from 100 degrees to 180 degrees
+   from 100 degrees to 180 degrees
    * 180 = carbon dioxide
    * 120 = BF3
    * 109.5 = CH4
@@ -520,8 +521,10 @@ void GetAngleSumFingerprint(MOLECULE molecule, int atom_id, dvector **fp)
   NewDVector(fp, MAX_3DFP_ATOMS);
   for(i = 0; i < molecule.n_atoms; i++){
     if(i != atom_id){
+      initUIVector(&aid);
       Get3DAngle(molecule, atom_id, i, &alpha, &aid);
       if(FLOAT_EQ(alpha, -9999.0, 1e-1)){
+        DelUIVector(&aid);
         continue;
       }
       else{

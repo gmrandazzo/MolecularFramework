@@ -21,4 +21,4 @@ typedef struct
 } KATOM;
 
 
-void Kekulize(MOLECULE *molecule);~
+void Kekulize(MOLECULE *molecule);

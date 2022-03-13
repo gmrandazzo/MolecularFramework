@@ -7,6 +7,9 @@
  */
 #include "molecule.h"
 
+#include "scientific.h"
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -30,7 +30,7 @@ int main(int argc, char **argv)
   }
 
   int nrot = atoi(argv[6]);
-  int n_esteps = 10;
+  int n_esteps = 40;
   double x, min = atof(argv[4]), max = atof(argv[5]);
   double dx = (max-min)/(double)n_esteps;
 
@@ -58,9 +58,11 @@ int main(int argc, char **argv)
     x = min;
     for(int j = 0; j < n_esteps; j++){
       freqfv->data[j] += (double)FreqFieldValue(field, x, x+dx);
+      /*
       avgfv->data[j] += (double)AvgFieldValue(field, x, x+dx);
       dipfv->data[j] += (double)DipoleFieldValue(field, x, x+dx);
       barfv->data[j] += (double)BaricenterFieldValue(molecule, field, x, x+dx);
+      */
       x+=dx;
     }
     DelVoxel(&v);
@@ -69,9 +71,11 @@ int main(int argc, char **argv)
 
   for(int j = 0; j < n_esteps; j++){
     freqfv->data[j] /= (double)nrot;
+    /*
     avgfv->data[j] /= (double)nrot;
     dipfv->data[j] /= (double)nrot;
     barfv->data[j] /= (double)nrot;
+    */
   }
 
   // Output
@@ -89,11 +93,11 @@ int main(int argc, char **argv)
   for(int j = 0; j < n_esteps; j++){
     printf("\t%f", dipfv->data[j]);
   }
-  */
 
   for(int j = 0; j < n_esteps; j++){
     printf("\t%f", barfv->data[j]);
   }
+  */
   printf("\n");
 
   DelDVector(&freqfv);

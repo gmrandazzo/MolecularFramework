@@ -98,7 +98,7 @@ void getShapePoints(MOLECULE molecule, SHAPEPNT **pnt, enum RADIUS_TYPE rtype)
   /*printf("%f %f %f %f %f %f %d %d %d\n", xmin, xmax, ymin, ymax, zmin, zmax, nxiter, nyiter, nziter);*/
   NewDVector(&cc, 3);
   for(i = 0; i < nxiter; i++){
-    printf("i: %d \n", i);
+    // printf("i: %d \n", i);
     cc->data[0] = dx + (stepsize/2.);
     dy = ymin;
     for(j = 0; j < nyiter; j++){
