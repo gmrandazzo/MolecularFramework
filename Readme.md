@@ -3,6 +3,7 @@
 MolecularFramework is a c/c++ cheminformatic library to develop
 new solution for drug discovery.
 
+![ScreenShot](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/MolecularFramework.png)
 
 Changelog
 =========
