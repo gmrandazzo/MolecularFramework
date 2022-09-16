@@ -1002,6 +1002,97 @@ void VoxelElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, int vox
   }
 }
 
+void ProteinLigandVoxelElectrostaticPotentialCalculator(MOLECULE *protein,
+                                                        MOLECULE *ligand,
+                                                        int npnt,
+                                                        int voxel_size,
+                                                        enum RADIUS_TYPE rtype,
+                                                        VOXEL **pocket_epot,
+                                                        VOXEL **ligand_epot)
+{
+  int i, j, k;
+  double  xmin, xmax, ymin, ymax, zmin, zmax;
+  double x, y, z, dx, dy, dz;
+
+  /*AssignParams(molecule, ff, rtype, formal_charge);*/
+  //printf("Sum of charges: %.8f\n", GetTotalCharge((*molecule)));
+
+  // Get the center based on the ligand
+  GetMolBox((*ligand), (double)voxel_size, &xmin, &xmax, &ymin, &ymax, &zmin, &zmax);
+
+  /*
+  double ang2au = 1.0 / 0.5291772083; //0.5291772083 is the bohr radius
+  xmin *= ang2au;
+  xmax *= ang2au;
+  ymin *= ang2au;
+  ymax *= ang2au;
+  zmin *= ang2au;
+  zmax *= ang2au;*/
+
+  //printf("xmin %f xmax %f ymin %f ymax %f zmin %f zmax %f\n", xmin, xmax, ymin, ymax, zmin, zmax);
+
+  /*Create Voxel*/
+  dx = (xmax-xmin)/(double)npnt;
+  dy = (ymax-ymin)/(double)npnt;
+  dz = (zmax-zmin)/(double)npnt;
+
+  NewVoxel(pocket_epot, npnt, npnt, npnt);
+  (*pocket_epot)->xmin = xmin;
+  (*pocket_epot)->ymin = ymin;
+  (*pocket_epot)->zmin = zmin;
+  (*pocket_epot)->xmax = xmax;
+  (*pocket_epot)->ymax = ymax;
+  (*pocket_epot)->zmax = zmax;
+
+  NewVoxel(ligand_epot, npnt, npnt, npnt);
+  (*ligand_epot)->xmin = xmin;
+  (*ligand_epot)->ymin = ymin;
+  (*ligand_epot)->zmin = zmin;
+  (*ligand_epot)->xmax = xmax;
+  (*ligand_epot)->ymax = ymax;
+  (*ligand_epot)->zmax = zmax;
+
+  /* set the radius type */
+  for(i = 0; i < ligand->n_atoms; i++){
+    if(rtype == vanderwaals){
+      ligand->atoms[i].radius = getVanDerWaalsRadiifromAtomName(ligand->atoms[i].asymbl);
+    }
+    else{
+      ligand->atoms[i].radius = getCovRadiusfromAtomName(ligand->atoms[i].asymbl);
+    }
+  }
+
+  for(i = 0; i < protein->n_atoms; i++){
+    if(rtype == vanderwaals){
+      protein->atoms[i].radius = getVanDerWaalsRadiifromAtomName(protein->atoms[i].asymbl);
+    }
+    else{
+      protein->atoms[i].radius = getCovRadiusfromAtomName(protein->atoms[i].asymbl);
+    }
+  }
+
+  /* Calculate the field in each point of the voxel */
+
+  dx = (xmax-xmin)/((*ligand_epot)->nx-1);
+  dy = (ymax-ymin)/((*ligand_epot)->ny-1);
+  dz = (zmax-zmin)/((*ligand_epot)->nz-1);
+
+  /* create voxel point using an equally-spaced numbers algoritm
+   * division first: start + i*(stop-start)/(num-1)
+   */
+  for(i = 0; i < (*ligand_epot)->nx; i++){
+    x =  xmin + i*dx;
+    for(j = 0; j < (*ligand_epot)->ny; j++){
+      y = ymin + j*dy;
+      for(k = 0; k < (*ligand_epot)->nz; k++){
+        z = zmin + k*dz;
+        (*pocket_epot)->pnt[i][j][k] = ElectrostaticPotential((*protein), x, y, z);
+        (*ligand_epot)->pnt[i][j][k] = ElectrostaticPotential((*ligand), x, y, z);
+      }
+    }
+  }
+}
+
 double VDWPotential(MOLECULE molecule, double px, double py, double pz)
 {
   int i;
@@ -1206,7 +1297,7 @@ double LJPotential(MOLECULE molecule,
    * epsilon is the potential depth
    * sigma is the sphere diameter
    * ConstAtom_i is the empiric constant for the i atom
-   * 
+   *
    */
   int i;
   /*If the point is not compenetrating any atoms*/
@@ -1220,10 +1311,10 @@ double LJPotential(MOLECULE molecule,
                                    molecule.atoms[i].coord.z);
       double eps_i = getGenericAProperty(molecule.atoms[i].asymbl, epsilon);
       double sigma_i = getGenericAProperty(molecule.atoms[i].asymbl, sigma);
-      
+
       /*
-      * Normally to reduce the computational time, the L-J interaction 
-      * is computed when the distance r divided with the sphere diameter sigma 
+      * Normally to reduce the computational time, the L-J interaction
+      * is computed when the distance r divided with the sphere diameter sigma
       * is <= 2.5. This approximation is known to be the "Truncated (and shifted) form
       * of L-J potential"
       *

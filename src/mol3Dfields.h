@@ -123,6 +123,20 @@ void VoxelFieldCalculator(MOLECULE *molecule, int formal_charge, int npnt, int v
 void VoxelElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, int voxel_size, enum RADIUS_TYPE rtype, VOXEL **epot);
 
 /*
+ * Calculate the electrostatic potential using the point charge approach
+ * and the partial charges of a ligand in a protein. You will get two
+ * electrostatic potentials which are complementary and independent one each other
+ * The Electrostatic Potential is expressed in kcal/mol
+ */
+void ProteinLigandVoxelElectrostaticPotentialCalculator(MOLECULE *protein,
+                                                        MOLECULE *ligand,
+                                                        int npnt,
+                                                        int voxel_size,
+                                                        enum RADIUS_TYPE rtype,
+                                                        VOXEL **pocket_epot,
+                                                        VOXEL **ligand_epot);
+
+/*
  * Calculate the Van der Waals potential using the point charge approach
  * and the UFF VdW parameters.
  * The potential is expressed in kcal/mol

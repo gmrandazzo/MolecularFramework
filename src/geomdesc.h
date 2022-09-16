@@ -53,6 +53,12 @@ void GetMoleculaLenght(MOLECULE molecule, double *lenght);
 
 
 /*
+* Molecular diffusion using the stock einstein equation
+* Algorithm described here: DOI: 10.1021/acs.molpharmaceut.7b01053
+*/
+void CalcMolecularDiffusion(MOLECULE molecule, double *diff);
+
+/*
  * Calculate Atomic Geometrical Fingerprint
  */
 

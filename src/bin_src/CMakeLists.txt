@@ -5,6 +5,7 @@ set(METDBGEN_SRC metdbgen.c)
 set(MFIELDSGEN_SRC mfieldgen.c)
 set(GENMOL2ADJMX_SRC Genmol2adjmx.c)
 set(GENMOLEPOT_SRC molepot.c)
+set(PROTLIGGENMOLEPOT_SRC protligandmolepot.c)
 set(GENMOLUFFVDWPOT_SRC moluffvdwpot.c)
 set(GENMOLENEGPOT_SRC molenegpot.c)
 set(GENMOLGPOT_SRC molgpot.c)
@@ -48,6 +49,9 @@ target_link_libraries(GenMol2Adjmx libmoldesc)
 
 add_executable(GenMolEPot ${GENMOLEPOT_SRC})
 target_link_libraries(GenMolEPot libmoldesc)
+
+add_executable(GenProteinLigandMolEPot ${PROTLIGGENMOLEPOT_SRC})
+target_link_libraries(GenProteinLigandMolEPot libmoldesc)
 
 add_executable(GenMolUFFVdWPot ${GENMOLUFFVDWPOT_SRC})
 target_link_libraries(GenMolUFFVdWPot libmoldesc)

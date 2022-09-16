@@ -263,6 +263,73 @@ void GetMoleculaLenght(MOLECULE molecule, double* lenght)
 }
 
 
+void CalcMolecularDiffusion(MOLECULE molecule, double *diff)
+{
+  /*
+   * D = (kB T)/ 6 pi n r
+   */
+   size_t i;
+   /*Calculate the center of mass of the molecule*/
+   double cx, cy, cz, dst, r;
+   cx = cy = cz = r = 0.f;
+   for(i = 0; i < molecule.n_atoms; i++){
+     cx += molecule.atoms[i].coord.x;
+     cy += molecule.atoms[i].coord.y;
+     cz += molecule.atoms[i].coord.z;
+   }
+
+   cx /= (double)molecule.n_atoms;
+   cy /= (double)molecule.n_atoms;
+   cz /= (double)molecule.n_atoms;
+
+   /*
+    * Estimate the highest radius of the molecule
+    */
+    for(i = 0; i < molecule.n_atoms; i++){
+      dst = GetDistance(cx,
+                        cy,
+                        cz,
+                        molecule.atoms[i].coord.x,
+                        molecule.atoms[i].coord.y,
+                        molecule.atoms[i].coord.z);
+      if(dst > r){
+        r = dst;
+      }
+      else{
+        continue;
+      }
+    }
+
+    /*
+     * Assuming the molecule as a spherical particle
+     * calculate the diffusion accorrding the stock einstein equation.
+     * kb = 1.3807 × 10-16 cm2 g s-2 K
+     *
+     * Solvent dynamic viscosity
+     * n = 0.002825 g/(cm*s) at 100 C
+     * n = 0.003540 g/(cm*s) at 80 C
+     * n = 0.005465 g/(cm*s) at 50 C
+     * n = 0.0089 g/(cm*s) at 25 C
+     * n = 0.010016 g/(cm*s) at 20 C
+     * n = 0.01306 g/(cm*s) at 10 C
+     * n = 0.015673 g/(cm*s) at 4 C
+     * n = 0.016735 g/(cm*s) at 2 C
+     * n = 0.01788 g/(cm*s) at 0 C
+     *
+     * r is in angstrom and needs to be converted in meters
+     */
+     (*diff) = (1.3807E-16*(273.15+25.)) /(6.f*_pi_*0.089*r*1e-10);
+
+     /*
+      * Correction according the fit of the following experimental data
+      *
+      * y = -0.0003x2 + 0.1444x + 0.765
+      * R2 = 0.86
+      */
+      double x = (*diff);
+      (*diff) = (-0.0003*square(x)) +(0.1444*x)+0.765;
+}
+
 /*FP array position*/
 #define MAX_3DFP_ATOMS 26
 #define TYPEDIM 32
