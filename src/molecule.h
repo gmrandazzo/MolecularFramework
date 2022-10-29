@@ -92,6 +92,7 @@ void NewSDFMolecule(MOLECULE *molecule, const char *filesdf);
 void SaveSDFMolecule(MOLECULE *molecule, const char *filename);
 
 void NewEmptyMolecule(MOLECULE *molecule, int n_atoms, int n_bonds);
+void CopyMolecule(MOLECULE src, MOLECULE *dst);
 void DelMolecule(MOLECULE *molecule);
 void PrintMolecule(MOLECULE molecule);
 void PrintMoleculeRings(MOLECULE molecule);

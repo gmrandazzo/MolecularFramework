@@ -1,0 +1,620 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						56
+					]
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-src-Debug-95c8cd3fab4feba3bb0b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						27,
+						28
+					]
+				},
+				{
+					"build" : "src/tests",
+					"jsonFile" : "directory-src.tests-Debug-115a8c61f2ecd2030e99.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/tests",
+					"targetIndexes" : 
+					[
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55
+					]
+				},
+				{
+					"build" : "src/bin_src",
+					"jsonFile" : "directory-src.bin_src-Debug-1bced592e75ebdfad85c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "2.8"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 0,
+					"source" : "src/bin_src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						29,
+						30
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "MolecularFramework",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19,
+						20,
+						21,
+						22,
+						23,
+						24,
+						25,
+						26,
+						27,
+						28,
+						29,
+						30,
+						31,
+						32,
+						33,
+						34,
+						35,
+						36,
+						37,
+						38,
+						39,
+						40,
+						41,
+						42,
+						43,
+						44,
+						45,
+						46,
+						47,
+						48,
+						49,
+						50,
+						51,
+						52,
+						53,
+						54,
+						55,
+						56
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "ForceFieldGen::@3cea9ae79002557ba594",
+					"jsonFile" : "target-ForceFieldGen-Debug-37ef7eea80f5b17431f3.json",
+					"name" : "ForceFieldGen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GenMol2Adjmx::@3cea9ae79002557ba594",
+					"jsonFile" : "target-GenMol2Adjmx-Debug-ac586e0d4248f6582b7d.json",
+					"name" : "GenMol2Adjmx",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GenMolEPot::@3cea9ae79002557ba594",
+					"jsonFile" : "target-GenMolEPot-Debug-d5b9bccb6f9e6cf19748.json",
+					"name" : "GenMolEPot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GenMolEnegPot::@3cea9ae79002557ba594",
+					"jsonFile" : "target-GenMolEnegPot-Debug-26e39266f44959fbb216.json",
+					"name" : "GenMolEnegPot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GenMolGPot::@3cea9ae79002557ba594",
+					"jsonFile" : "target-GenMolGPot-Debug-39a229876185ba47f0b8.json",
+					"name" : "GenMolGPot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GenMolLJPot::@3cea9ae79002557ba594",
+					"jsonFile" : "target-GenMolLJPot-Debug-c788cda010e599a99ed1.json",
+					"name" : "GenMolLJPot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GenMolUFFVdWPot::@3cea9ae79002557ba594",
+					"jsonFile" : "target-GenMolUFFVdWPot-Debug-d7d545a2768d8e41a8fd.json",
+					"name" : "GenMolUFFVdWPot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "GenProteinLigandMolEPot::@3cea9ae79002557ba594",
+					"jsonFile" : "target-GenProteinLigandMolEPot-Debug-08446b4733b4bd12ef79.json",
+					"name" : "GenProteinLigandMolEPot",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MIFieldsGen::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MIFieldsGen-Debug-848431a0e572cf50d19a.json",
+					"name" : "MIFieldsGen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MOLEpotVS::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MOLEpotVS-Debug-c8601a4d5d07e1e6f523.json",
+					"name" : "MOLEpotVS",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol23DAtomEpotFP::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol23DAtomEpotFP-Debug-0058fdefe656bcaf3354.json",
+					"name" : "Mol23DAtomEpotFP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol23DAtomTypeFP::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol23DAtomTypeFP-Debug-359e66ff09d9d041c417.json",
+					"name" : "Mol23DAtomTypeFP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol23DTwoAtomDistanceAngleTorsion::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol23DTwoAtomDistanceAngleTorsion-Debug-4a978cca193d38af1ac5.json",
+					"name" : "Mol23DTwoAtomDistanceAngleTorsion",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol23DTwoAtomEpotFP::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol23DTwoAtomEpotFP-Debug-a7675a7f8127bc9a6931.json",
+					"name" : "Mol23DTwoAtomEpotFP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol23DTwoAtomFP::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol23DTwoAtomFP-Debug-9828871e36425f1e49b5.json",
+					"name" : "Mol23DTwoAtomFP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol23DTwoAtomOneHotEncoding::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol23DTwoAtomOneHotEncoding-Debug-3317bf872dbe42c23170.json",
+					"name" : "Mol23DTwoAtomOneHotEncoding",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol23DTwoAtomWFP::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol23DTwoAtomWFP-Debug-8fe3c7d632b691dc45fb.json",
+					"name" : "Mol23DTwoAtomWFP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol2AtomTypeFP::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol2AtomTypeFP-Debug-9a1dfa6a69348d557622.json",
+					"name" : "Mol2AtomTypeFP",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "Mol2DescriptorGenerator::@3cea9ae79002557ba594",
+					"jsonFile" : "target-Mol2DescriptorGenerator-Debug-baa6ece7c48661a1a62a.json",
+					"name" : "Mol2DescriptorGenerator",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MolEPot3DDesc::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MolEPot3DDesc-Debug-336947f1fbbb756f7d9c.json",
+					"name" : "MolEPot3DDesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MolEPot3DSphericalDesc::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MolEPot3DSphericalDesc-Debug-c91614aa22889a4d69d8.json",
+					"name" : "MolEPot3DSphericalDesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MolGPot3DDesc::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MolGPot3DDesc-Debug-d3811360b2ecb0e912cb.json",
+					"name" : "MolGPot3DDesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MolGPot3DSphericalDesc::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MolGPot3DSphericalDesc-Debug-9cf7fa0ca2f99801ce0b.json",
+					"name" : "MolGPot3DSphericalDesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MolLJPot3DDesc::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MolLJPot3DDesc-Debug-94c995c24b6027a4491d.json",
+					"name" : "MolLJPot3DDesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "MolLJPot3DSphericalDesc::@3cea9ae79002557ba594",
+					"jsonFile" : "target-MolLJPot3DSphericalDesc-Debug-e7070e6131c82a8a967c.json",
+					"name" : "MolLJPot3DSphericalDesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "afmodel::@3cea9ae79002557ba594",
+					"jsonFile" : "target-afmodel-Debug-e1d0846cfacb123d4628.json",
+					"name" : "afmodel",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "gen3Ddesc::@3cea9ae79002557ba594",
+					"jsonFile" : "target-gen3Ddesc-Debug-3e7d85a1f073dc273acd.json",
+					"name" : "gen3Ddesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libcppwrap::@145eef247bfb46b6828c",
+					"jsonFile" : "target-libcppwrap-Debug-c57243977429e1ccf245.json",
+					"name" : "libcppwrap",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "libmoldesc::@145eef247bfb46b6828c",
+					"jsonFile" : "target-libmoldesc-Debug-a366508425608385beeb.json",
+					"name" : "libmoldesc",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "makeMolVoxelDB::@3cea9ae79002557ba594",
+					"jsonFile" : "target-makeMolVoxelDB-Debug-41fb3bbd52ccac728093.json",
+					"name" : "makeMolVoxelDB",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "metdbgen::@3cea9ae79002557ba594",
+					"jsonFile" : "target-metdbgen-Debug-6a779314be3de78f1caf.json",
+					"name" : "metdbgen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testAlign3DConformations::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testAlign3DConformations-Debug-4418ba5de38a4c7c61d7.json",
+					"name" : "testAlign3DConformations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testAlign3DPharmacophore::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testAlign3DPharmacophore-Debug-f7aecd48b5b8f356795e.json",
+					"name" : "testAlign3DPharmacophore",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testAlign3DShapes::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testAlign3DShapes-Debug-77ee6b50a10b326664d3.json",
+					"name" : "testAlign3DShapes",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testAtomDepth::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testAtomDepth-Debug-ff86360ff935b71cb052.json",
+					"name" : "testAtomDepth",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testCalcMolCharge::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testCalcMolCharge-Debug-37ce16ebb58e419b8a45.json",
+					"name" : "testCalcMolCharge",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testDescriptors::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testDescriptors-Debug-a01af36160f0373fa1dc.json",
+					"name" : "testDescriptors",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testDihedral::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testDihedral-Debug-f37c0d195abc9042d443.json",
+					"name" : "testDihedral",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGenADJmatrix::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGenADJmatrix-Debug-91011144356e3e5a3c57.json",
+					"name" : "testGenADJmatrix",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetAllAngles::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetAllAngles-Debug-9e1d89a1b6b3eab61df3.json",
+					"name" : "testGetAllAngles",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetAllDihedralAngle::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetAllDihedralAngle-Debug-c4b2c29f93f98ae27ca4.json",
+					"name" : "testGetAllDihedralAngle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetAllDihedralAngleFromId::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetAllDihedralAngleFromId-Debug-7129f807dc82883561d8.json",
+					"name" : "testGetAllDihedralAngleFromId",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetAngle::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetAngle-Debug-fd21c39d0094e956712f.json",
+					"name" : "testGetAngle",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetEMWMWfromMolecularFormula::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetEMWMWfromMolecularFormula-Debug-eb4e6e2d66de72afa428.json",
+					"name" : "testGetEMWMWfromMolecularFormula",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetMol2BoxSize::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetMol2BoxSize-Debug-60aafa0ebb7ca7f2c454.json",
+					"name" : "testGetMol2BoxSize",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetPlanarity::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetPlanarity-Debug-1bf34cfd6313d21f391f.json",
+					"name" : "testGetPlanarity",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testGetShapePoints::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testGetShapePoints-Debug-f0e4c181e1146374abe2.json",
+					"name" : "testGetShapePoints",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testMol2AtomTypeHash::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testMol2AtomTypeHash-Debug-8e148a41674cd02d647d.json",
+					"name" : "testMol2AtomTypeHash",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testMol2RandRotation::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testMol2RandRotation-Debug-7042f48083109bd1f065.json",
+					"name" : "testMol2RandRotation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testMol2ToPQR::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testMol2ToPQR-Debug-1943ac91c3001bb8ea4d.json",
+					"name" : "testMol2ToPQR",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testMol2TranslateToNewCentre::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testMol2TranslateToNewCentre-Debug-bcdcff4b271f6ec138b5.json",
+					"name" : "testMol2TranslateToNewCentre",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testNewSDFMolecule::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testNewSDFMolecule-Debug-3c8f94db3115335cee79.json",
+					"name" : "testNewSDFMolecule",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testRMSDConformations::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testRMSDConformations-Debug-c0230dbb3eb721490fdb.json",
+					"name" : "testRMSDConformations",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testReadMol2::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testReadMol2-Debug-dfc2c81b5d00d7e216a5.json",
+					"name" : "testReadMol2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testSphericalInteractionField::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testSphericalInteractionField-Debug-e1e7d487922866610503.json",
+					"name" : "testSphericalInteractionField",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "testVoxel3DFields::@08b4cb1648a15a99be29",
+					"jsonFile" : "target-testVoxel3DFields-Debug-8cdbde27e09e43848618.json",
+					"name" : "testVoxel3DFields",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-7cfd6058dc6cce007f3d.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/marco/Nextcloud/Software/MolecularFramework/build",
+		"source" : "/home/marco/Nextcloud/Software/MolecularFramework"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

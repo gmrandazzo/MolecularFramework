@@ -312,6 +312,7 @@ void NewEmptyMolecule(MOLECULE *molecule , int n_atoms, int n_bonds)
   InitializeMolecule(molecule);
 }
 
+
 void NewMOL2Molecule(MOLECULE *molecule , const char *filename)
 {
   int i, j;

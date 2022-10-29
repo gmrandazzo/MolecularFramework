@@ -41,6 +41,22 @@ void TranslateConformation(MOLECULE m, double cx, double cy, double cz);
  */
 void RandomConformationRotation(MOLECULE *m);
 
+
+/*
+ * Implementation of the Iterative Closest Point Algorithm
+ * from doi:10.1109/34.121791
+ * A method for registration of 3-D shape
+ * P.J. Besl; Neil D. McKay
+ * https://ieeexplore.ieee.org/document/121791
+ *
+ * This method is used to align 3D conformations and shapes
+ */
+double ICP(matrix *src_pts,
+           matrix *dst_pts,
+           double tolerance,
+           matrix **R,
+           dvector **t,
+           MOLECULE *src_mol);
 /*
  * Align conformers of the same molecule (molecule m1 to molecule m2) according
  * to the global structure and return the rmsd
@@ -54,9 +70,11 @@ double Align3DConformations(MOLECULE m1, MOLECULE m2);
  */
 double Align3DPharmacophore(MOLECULE m1, MOLECULE m2, uivector *aid1, uivector *aid2);
 
+
+double Align3DShapesNew(MOLECULE m1, MOLECULE m2);
 /*
  * Align two different molecules (molecule m1 to molecule m2) according
- * to most distant barycenter atoms 
+ * to most distant barycenter atoms
  * The function return the alignment rmsd.
  */
 double Align3DShapes(MOLECULE m1, MOLECULE m2);

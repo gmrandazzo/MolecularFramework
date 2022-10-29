@@ -1,0 +1,38 @@
+# CMake generated Testfile for 
+# Source directory: /home/marco/Nextcloud/Software/MolecularFramework/src/tests
+# Build directory: /home/marco/Nextcloud/Software/MolecularFramework/build/src/tests
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(testAtomDepth "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testAtomDepth" "../../../src/tests/Data/Cortisol.mol2" "10")
+set_tests_properties(testAtomDepth PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;36;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testGetAngle "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testGetAngle")
+set_tests_properties(testGetAngle PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;40;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testDihedral "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testDihedral")
+set_tests_properties(testDihedral PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;44;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testReadMol2 "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testReadMol2" "../../../src/tests/Data/Cortisol.mol2")
+set_tests_properties(testReadMol2 PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;48;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testCalcMolCharge "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testCalcMolCharge" "../../../src/tests/Data/Cortisol.mol2")
+set_tests_properties(testCalcMolCharge PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;52;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testGenADJmatrix "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testGenADJmatrix" "../../../src/tests/Data/Cortisol.mol2")
+set_tests_properties(testGenADJmatrix PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;64;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testMol2AtomTypeHash "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testMol2AtomTypeHash" "../../../src/tests/Data/Cortisol.mol2")
+set_tests_properties(testMol2AtomTypeHash PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;68;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testNewSDFMolecule "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testNewSDFMolecule" "../../../src/tests/Data/Imatinib.sdf")
+set_tests_properties(testNewSDFMolecule PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;73;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testGetPlanarity "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testGetPlanarity" "../../../src/tests/Data/benzene.mol2")
+set_tests_properties(testGetPlanarity PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;77;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testDescriptors "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testDescriptors" "../../../src/tests/Data/RT212.mol2")
+set_tests_properties(testDescriptors PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;81;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testGetShapePoints "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testGetShapePoints" "../../../src/tests/Data/2ai9.mol2" "2ai9.shapepnt.mol2")
+set_tests_properties(testGetShapePoints PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;85;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testGetEMWMWfromMolecularFormula "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testGetEMWMWfromMolecularFormula" "C12H22O11" "0")
+set_tests_properties(testGetEMWMWfromMolecularFormula PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;89;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testAlign3DConformations "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testAlign3DConformations" "../../../src/tests/Data/Conf002_alanine.mol2" "../../../src/tests/Data/Conf100_alanine.mol2")
+set_tests_properties(testAlign3DConformations PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;94;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testAlign3DPharmacophore "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testAlign3DPharmacophore" "../../../src/tests/Data/A.mol2" "../../../src/tests/Data/B.mol2" "../../../src/tests/Data/A_B.txt")
+set_tests_properties(testAlign3DPharmacophore PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;98;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testAlign3DShapes "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testAlign3DShapes" "../../../src/tests/Data/A.mol2" "../../../src/tests/Data/B.mol2")
+set_tests_properties(testAlign3DShapes PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;102;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")
+add_test(testRMSDConformations "/home/marco/Nextcloud/Software/MolecularFramework/build/src/tests/testRMSDConformations" "../../../src/tests/Data/Conf002_alanine.mol2" "../../../src/tests/Data/Conf100_alanine.mol2")
+set_tests_properties(testRMSDConformations PROPERTIES  _BACKTRACE_TRIPLES "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;106;add_test;/home/marco/Nextcloud/Software/MolecularFramework/src/tests/CMakeLists.txt;0;")

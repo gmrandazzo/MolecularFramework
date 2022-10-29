@@ -1,0 +1,367 @@
+[
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/c++ -Dlibcppwrap_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -g -fPIC -o src/CMakeFiles/libcppwrap.dir/cppwrap.cpp.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/cppwrap.cpp",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/cppwrap.cpp"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/c++ -Dlibcppwrap_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -g -fPIC -o src/CMakeFiles/libcppwrap.dir/ringsearch.cpp.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/ringsearch.cpp",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/ringsearch.cpp"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/c++ -Dlibcppwrap_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -g -fPIC -o src/CMakeFiles/libcppwrap.dir/graphanalysis.cpp.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/graphanalysis.cpp",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/graphanalysis.cpp"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/version.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/version.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/version.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/misc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/misc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/misc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/periodic_table.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/periodic_table.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/periodic_table.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/massanalysis.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/massanalysis.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/massanalysis.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/atomanalysis.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/atomanalysis.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/atomanalysis.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/protanalysis.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/protanalysis.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/protanalysis.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/atomdesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/atomdesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/atomdesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/forcefield.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/forcefield.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/forcefield.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/fielddesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/fielddesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/fielddesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/geomdesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/geomdesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/geomdesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/shapedesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/shapedesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/shapedesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/miscdesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/miscdesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/miscdesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/molecule.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/molecule.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/molecule.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/wfingerprint.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/wfingerprint.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/wfingerprint.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/mol3Daligner.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/mol3Daligner.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/mol3Daligner.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -Dlibmoldesc_EXPORTS -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -fPIC -o src/CMakeFiles/libmoldesc.dir/mol3Dfields.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/mol3Dfields.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/mol3Dfields.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testAtomDepth.dir/testGetAtomDepth.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAtomDepth.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAtomDepth.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetAngle.dir/testGetAngle.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAngle.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAngle.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testDihedral.dir/testDihedral.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testDihedral.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testDihedral.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testReadMol2.dir/testReadMol2.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testReadMol2.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testReadMol2.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testCalcMolCharge.dir/testCalcMolCharge.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testCalcMolCharge.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testCalcMolCharge.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testMol2TranslateToNewCentre.dir/testMol2TranslateToNewCentre.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2TranslateToNewCentre.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2TranslateToNewCentre.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testMol2ToPQR.dir/testMol2ToPQR.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2ToPQR.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2ToPQR.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGenADJmatrix.dir/testGenAdiacenceMatrix.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGenAdiacenceMatrix.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGenAdiacenceMatrix.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testMol2AtomTypeHash.dir/testMol2AtomTypeHash.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2AtomTypeHash.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2AtomTypeHash.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testNewSDFMolecule.dir/testNewSDFMolecule.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testNewSDFMolecule.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testNewSDFMolecule.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetPlanarity.dir/testGetPlanarity.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetPlanarity.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetPlanarity.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testDescriptors.dir/testDescriptors.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testDescriptors.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testDescriptors.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetShapePoints.dir/testGetShapePoints.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetShapePoints.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetShapePoints.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetEMWMWfromMolecularFormula.dir/testGetEMWMWfromMolecularFormula.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetEMWMWfromMolecularFormula.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetEMWMWfromMolecularFormula.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testAlign3DConformations.dir/testAlign3DConformations.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testAlign3DConformations.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testAlign3DConformations.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testAlign3DPharmacophore.dir/testAlign3DPharmacophore.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testAlign3DPharmacophore.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testAlign3DPharmacophore.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testAlign3DShapes.dir/testAlign3DShapes.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testAlign3DShapes.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testAlign3DShapes.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testRMSDConformations.dir/testRMSDConformations.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testRMSDConformations.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testRMSDConformations.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testMol2RandRotation.dir/testMol2RandRotation.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2RandRotation.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testMol2RandRotation.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testSphericalInteractionField.dir/testSphericalInteractionField.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testSphericalInteractionField.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testSphericalInteractionField.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testVoxel3DFields.dir/testVoxel3DFields.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testVoxel3DFields.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testVoxel3DFields.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetMol2BoxSize.dir/testGetMol2BoxSize.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetMol2BoxSize.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetMol2BoxSize.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetAllDihedralAngleFromId.dir/testGetAllDihedralFromId.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAllDihedralFromId.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAllDihedralFromId.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetAllDihedralAngle.dir/testGetAllDihedral.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAllDihedral.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAllDihedral.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/tests/CMakeFiles/testGetAllAngles.dir/testGetAllAngles.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAllAngles.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/tests/testGetAllAngles.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/metdbgen.dir/metdbgen.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/metdbgen.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/metdbgen.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/afmodel.dir/afmodel.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/afmodel.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/afmodel.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/gen3Ddesc.dir/gen3Ddesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/gen3Ddesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/gen3Ddesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/ForceFieldGen.dir/ffgen.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/ffgen.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/ffgen.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MIFieldsGen.dir/mfieldgen.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mfieldgen.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mfieldgen.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/GenMol2Adjmx.dir/Genmol2adjmx.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/Genmol2adjmx.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/Genmol2adjmx.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/GenMolEPot.dir/molepot.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepot.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepot.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/GenProteinLigandMolEPot.dir/protligandmolepot.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/protligandmolepot.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/protligandmolepot.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/GenMolUFFVdWPot.dir/moluffvdwpot.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/moluffvdwpot.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/moluffvdwpot.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/GenMolEnegPot.dir/molenegpot.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molenegpot.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molenegpot.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/GenMolGPot.dir/molgpot.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molgpot.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molgpot.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/GenMolLJPot.dir/molljpot.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molljpot.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molljpot.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MolEPot3DDesc.dir/molepot3Ddesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepot3Ddesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepot3Ddesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MolGPot3DDesc.dir/molgpot3Ddesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molgpot3Ddesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molgpot3Ddesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MolLJPot3DDesc.dir/molljpot3Ddesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molljpot3Ddesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molljpot3Ddesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MolEPot3DSphericalDesc.dir/molepot3DSphericalDesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepot3DSphericalDesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepot3DSphericalDesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MOLEpotVS.dir/molepotVS.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepotVS.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molepotVS.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MolGPot3DSphericalDesc.dir/molgpot3DSphericalDesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molgpot3DSphericalDesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molgpot3DSphericalDesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/MolLJPot3DSphericalDesc.dir/molljpot3DSphericalDesc.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molljpot3DSphericalDesc.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/molljpot3DSphericalDesc.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/makeMolVoxelDB.dir/makeVoxelDatabase.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/makeVoxelDatabase.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/makeVoxelDatabase.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol2AtomTypeFP.dir/mol2atfp.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol2atfp.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol2atfp.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol23DAtomTypeFP.dir/mol23Datypefp.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Datypefp.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Datypefp.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol23DAtomEpotFP.dir/mol23Depotfp.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Depotfp.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Depotfp.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol23DTwoAtomFP.dir/mol23Dtwoatomfp.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Dtwoatomfp.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Dtwoatomfp.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol23DTwoAtomOneHotEncoding.dir/mol23dtwoatomOneHotEncoding.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23dtwoatomOneHotEncoding.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23dtwoatomOneHotEncoding.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol23DTwoAtomDistanceAngleTorsion.dir/mol2twoatomdistangletorsion.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol2twoatomdistangletorsion.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol2twoatomdistangletorsion.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol23DTwoAtomEpotFP.dir/mol23Dtwoatomwepotfp.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Dtwoatomwepotfp.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Dtwoatomwepotfp.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol2DescriptorGenerator.dir/mol2GenDescriptors.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol2GenDescriptors.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol2GenDescriptors.c"
+},
+{
+  "directory": "/home/marco/Nextcloud/Software/MolecularFramework/build",
+  "command": "/usr/bin/cc -I/usr/lib -O0  -Werror -g -fsanitize=address -std=gnu99 -Wall -g -o src/bin_src/CMakeFiles/Mol23DTwoAtomWFP.dir/mol23Dtwoatomtypewpotfp.c.o -c /home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Dtwoatomtypewpotfp.c",
+  "file": "/home/marco/Nextcloud/Software/MolecularFramework/src/bin_src/mol23Dtwoatomtypewpotfp.c"
+}
+]

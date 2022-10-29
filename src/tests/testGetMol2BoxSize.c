@@ -23,11 +23,15 @@ int main(int argc, char **argv)
   MOLECULE molecule;
   NewMOL2Molecule(&molecule, argv[1]);
 
-  double xmin, xmax, ymin, ymax, zmin, zmax;
+  double cx, cy, cz, xmin, xmax, ymin, ymax, zmin, zmax;
   xmin = xmax = molecule.atoms[0].coord.x;
   ymin = ymax = molecule.atoms[0].coord.y;
   zmin = zmax = molecule.atoms[0].coord.z;
+  cx = cy = cz = 0.;
   for(int i = 0; i < molecule.n_atoms; i++){
+    cx += molecule.atoms[i].coord.x;
+    cy += molecule.atoms[i].coord.y;
+    cz += molecule.atoms[i].coord.z;
     if(molecule.atoms[i].coord.x < xmin)
       xmin = molecule.atoms[i].coord.x;
     if(molecule.atoms[i].coord.x > xmax)
@@ -41,8 +45,14 @@ int main(int argc, char **argv)
     if(molecule.atoms[i].coord.z > zmax)
       zmax = molecule.atoms[i].coord.z;
   }
-
-  printf("%f,%f,%f,%f,%f,%f,%f,%f,%f\n", xmin, xmax, ymin, ymax, zmin, zmax, xmax-xmin, ymax-ymin, zmax-zmin);
+  
+  cx/=(float)molecule.n_atoms;
+  cy/=(float)molecule.n_atoms;
+  cz/=(float)molecule.n_atoms;
+  printf("xmin ymin zmin: %f %f %f\n", xmin, ymin, zmin);
+  printf("xmax ymax zmax: %f %f %f\n", xmax, ymax, zmax);
+  printf("xsize ysize zsize: %f %f %f\n", xmax-xmin, ymax-ymin, zmax-zmin);
+  printf("center: %f %f %f\n", cx, cy, cz);
 
   //GetMolBox(, double size, double *xmin, double *xmax, double *ymin, double *ymax, double *zmin, double *zmax)
 

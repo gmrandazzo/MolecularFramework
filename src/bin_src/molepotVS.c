@@ -23,33 +23,9 @@
 #include "../mol3Dfields.h"
 #include "../fielddesc.h"
 
-int main(int argc, char **argv)
+
+double calc_norm(VOXEL *v1, VOXEL *v2)
 {
-  if(argc != 5){
-    printf("\nUsage %s molecule_1.mol2 molecule_2.mol2 [grid resolution] [grid size]\n\n", argv[0]);
-    return -1;
-  }
-
-
-  MOLECULE molecule1;
-  NewMOL2Molecule(&molecule1, argv[1]);
-  AtomAnalyzer(&molecule1, 1);
-  
-  MOLECULE molecule2;
-  NewMOL2Molecule(&molecule2, argv[2]);
-  AtomAnalyzer(&molecule2, 1);
-
-  double rmsd = Align3DShapes(molecule1, molecule2);
-  //double rmsd = Align3DOnVDWShapes(molecule1, molecule2);
-  
-  int grid_resolution = atoi(argv[3]);
-  int grid_size = atoi(argv[4]);
-
-  VOXEL *v1;
-  VOXEL *v2;
-  VoxelElectrostaticPotentialCalculator(&molecule1, grid_resolution, grid_size, vanderwaals, &v1);
-  VoxelElectrostaticPotentialCalculator(&molecule2, grid_resolution, grid_size, vanderwaals, &v2);
-
   double norm = 0.f;
   for(int i = 0; i < v1->nx; i++){
     for(int j = 0; j < v1->ny; j++){
@@ -58,12 +34,50 @@ int main(int argc, char **argv)
       }
     }
   }
+  return sqrt(norm);
+}
 
-  norm = sqrt(norm);
-  printf("%s,%f,%.3f\n", molecule2.molname, norm, rmsd);
+int main(int argc, char **argv)
+{
+  if(argc != 5){
+    printf("\nUsage %s molecule_1.mol2 molecule_2.mol2 [grid resolution] [grid size]\n\n", argv[0]);
+    return -1;
+  }
+
+  int it = 0;
+  MOLECULE molecule1;
+  NewMOL2Molecule(&molecule1, argv[1]);
+  AtomAnalyzer(&molecule1, 1);
+
+  MOLECULE molecule2;
+  NewMOL2Molecule(&molecule2, argv[2]);
+  AtomAnalyzer(&molecule2, 1);
+
+  //double rmsd = Align3DShapes(molecule1, molecule2);
+  //double rmsd = Align3DOnVDWShapes(molecule1, molecule2);
+
+  int grid_resolution = atoi(argv[3]);
+  int grid_size = atoi(argv[4]);
+
+  VOXEL *v1;
+  VoxelElectrostaticPotentialCalculator(&molecule1, grid_resolution, grid_size, vanderwaals, &v1);
+
+  double norm = 9999.f;
+  while(it < 1000){
+    VOXEL *v2;
+    RandomConformationRotation(&molecule2);
+    VoxelElectrostaticPotentialCalculator(&molecule2, grid_resolution, grid_size, vanderwaals, &v2);
+    double tmp_norm = calc_norm(v1, v2);
+    if(tmp_norm < norm)
+      norm = tmp_norm;
+    //printf("%f %f\n", tmp_norm, norm);
+    DelVoxel(&v2);
+    it++;
+  }
+  printf("%s,%f\n", molecule2.molname, norm);
 
   DelVoxel(&v1);
-  DelVoxel(&v2);
+
   DelMolecule(&molecule1);
   DelMolecule(&molecule2);
   return 0;

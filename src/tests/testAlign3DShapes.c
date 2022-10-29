@@ -24,21 +24,21 @@ int main(int argc, char **argv)
     printf("\nUsage %s align_A.mol2 in_B.mol2\n\n", argv[0]);
     return -1;
   }
- 
+
   MOLECULE A, B;
   NewMOL2Molecule(&A, argv[1]);
   AtomAnalyzer(&A, 1);
   NewMOL2Molecule(&B, argv[2]);
   AtomAnalyzer(&B, 1);
-  
-  double rmsd = Align3DShapes(A, B);
-  //double rmsd = Align3DOnVDWShapes(A, B);
+
+  //double rmsd = Align3DShapesNew(A, B);
+  double rmsd = Align3DOnVDWShapes(A, B);
   printf("%s RMSD: %.3f\n", B.molname, rmsd);
 
   SaveMol2Molecule(A,  argv[1]);
- 
+
   DelMolecule(&A);
   DelMolecule(&B);
-  
+
   return 0;
 }

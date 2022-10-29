@@ -16,7 +16,7 @@
 
 int main(int argc, char **argv)
 {
-  if(argc != 3){
+  if(argc != 4){
     printf("\nUsage %s file.mol2 [formal charge] forcefield.txt\n\n", argv[0]);
     return -1;
   }

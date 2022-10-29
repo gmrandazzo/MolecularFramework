@@ -26,16 +26,17 @@ int main(int argc, char **argv)
     NewMOL2Molecule(&molecule, argv[1]);
 
 
-    double exmw, volume, surface, diffusion, planarity;
+    double mw, exmw, volume, surface, diffusion, planarity;
 
     GetPlanarity(molecule, &planarity);
-
+    GetMW(molecule, &mw);
     GetExactMW(molecule, &exmw);
     GetVDWMolVolSurf(molecule, &volume, &surface, 0.5);
-    CalcMolecularDiffusion(molecule, &diffusion);
+    CalcMolecularDiffusion_StockesEinstein(molecule, &diffusion);
 
     printf("%s,", molecule.molname);
     printf("%f,", planarity);
+    printf("%f,", mw);
     printf("%f,", exmw);
     printf("%f,", volume);
     printf("%f,", surface);

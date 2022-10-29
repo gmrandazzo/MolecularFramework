@@ -15,6 +15,8 @@
 #include "misc.h"
 #include "periodic_table.h"
 #include "mol3Dfields.h"
+#include "shapedesc.h"
+#include "massanalysis.h"
 
 
 double GetDistance(double x1, double y1, double z1, double x2, double y2, double z2)
@@ -263,7 +265,7 @@ void GetMoleculaLenght(MOLECULE molecule, double* lenght)
 }
 
 
-void CalcMolecularDiffusion(MOLECULE molecule, double *diff)
+void CalcMolecularDiffusion_StockesEinstein(MOLECULE molecule, double *diff)
 {
   /*
    * D = (kB T)/ 6 pi n r
@@ -325,9 +327,46 @@ void CalcMolecularDiffusion(MOLECULE molecule, double *diff)
       *
       * y = -0.0003x2 + 0.1444x + 0.765
       * R2 = 0.86
-      */
+
       double x = (*diff);
       (*diff) = (-0.0003*square(x)) +(0.1444*x)+0.765;
+      */
+}
+
+void CalcMolecularDiffusion_WilkeChang(MOLECULE molecule, double *diff)
+{
+  /* doi: 10.1016/j.chroma.2011.07.018
+   * D = (7.4E-8* T *sqrt(fi*M)) / n*(V^0.6)
+   * where:
+   * fi = association parameter
+   * M = molecular massa
+   * n = solvent viscosity
+   * V = molecular volume
+   * T = temperature
+   */
+   double mw, volume, surface;
+
+   GetMW(molecule, &mw);
+   GetVDWMolVolSurf(molecule, &volume, &surface, 0.5);
+    /*
+     * Assuming the molecule as a spherical particle
+     * calculate the diffusion accorrding the stock einstein equation.
+     * kb = 1.3807 × 10-16 cm2 g s-2 K
+     *
+     * Solvent dynamic viscosity
+     * n = 0.002825 g/(cm*s) at 100 C
+     * n = 0.003540 g/(cm*s) at 80 C
+     * n = 0.005465 g/(cm*s) at 50 C
+     * n = 0.0089 g/(cm*s) at 25 C
+     * n = 0.010016 g/(cm*s) at 20 C
+     * n = 0.01306 g/(cm*s) at 10 C
+     * n = 0.015673 g/(cm*s) at 4 C
+     * n = 0.016735 g/(cm*s) at 2 C
+     * n = 0.01788 g/(cm*s) at 0 C
+     *
+     * r is in angstrom and needs to be converted in meters
+     */
+     (*diff) = (7.4E-8*(273.15+25.)*sqrt(2.6*mw)) /(0.089*pow(volume, 0.6));
 }
 
 /*FP array position*/

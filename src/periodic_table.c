@@ -22,122 +22,104 @@ typedef struct{
 
 /*
  * Periodic Table according to
- * https://www.degruyter.com/downloadpdf/j/pac.2016.88.issue-3/pac-2015-0305/pac-2015-0305.pdf
- * some elements verified with http://www.chemcalc.org/
+ * https://physics.nist.gov/cgi-bin/Compositions/stand_alone.pl?ele=&all=all&ascii=ascii
  * and organized as:
  * Atom name, Relative atomic mass
  */
 PeriodicTable relamptable[] = {
-  {"H", 1.007941},
-  {"D", 2.01410178}, /*Deuterium isotope */
-  {"Li", 	6.940038},
-  {"Na", 22.989769282},
-  {"K", 39.098301},
-  {"Rb", 85.467664},
-  {"Cs", 132.90545192},
-  {"Fr", 223.02},
-  {"Be", 9.0121823},
-  {"Mg", 24.305052},
-  {"Ca", 40.0784},
-  {"Sr", 87.621},
-  {"Ba", 137.3277},
-  {"Ra", 226},
-  {"B", 10.8117},
-  {"Al", 26.98153868},
-  {"Ga", 69.7231},
-  {"In", 114.8183},
-  {"Tl", 204.38332},
-  {"C", 12.010736},
-  {"Si", 28.085499},
-  {"Ge", 72.631},
-  {"Sn", 118.7107},
-  {"Pb", 207.21},
-  {"N", 14.006703},
-  {"P", 30.9737622},
-  {"As", 74.921602},
-  {"Sb", 121.7601},
-  {"Bi", 208.980401},
-  {"O", 15.999405},
-  {"S", 32.064787},
-  {"Se", 78.963},
-  {"Te", 127.603},
-  {"Po", 209},
-  {"F", 18.99840325},
-  {"Cl", 35.452938},
-  {"Br", 79.903528},
-  {"I", 126.904473},
-  {"At", 210},
-  {"He", 4.0026022},
-  {"Ne", 20.17976},
-  {"Ar", 39.9481},
-  {"Kr", 83.7982},
-  {"Xe", 131.2936},
-  {"Rn", 222},
-  {"Sc", 44.9559126},
-  {"Ti", 47.866749},
-  {"V", 50.94151},
-  {"Cr", 51.996133},
-  {"Mn", 54.9380455},
-  {"Fe", 55.845146},
-  {"Co", 58.9331955},
-  {"Ni", 58.69344},
-  {"Cu", 63.5463},
-  {"Zn", 63.5463},
-  {"Y", 88.905852},
-  {"Zr", 91.2242},
-  {"Nb", 92.906382},
-  {"Mo", 95.962},
-  {"Tc", 98},
-  {"Ru", 101.072},
-  {"Rh", 102.905502},
-  {"Pd", 106.421},
-  {"Ag", 107.868151},
-  {"Cd", 112.4118},
-  {"La", 138.905477},
-  {"Ce", 140.1161},
-  {"Pr", 140.907652},
-  {"Nd", 144.2423},
+  {"H", 1.007940754056},
+  {"He", 4.002601932121},
+  {"Li", 6.940036602916},
+  {"Be", 9.012183065000},
+  {"B", 10.811028046410},
+  {"C", 12.010735896735},
+  {"N", 14.006703211446},
+  {"O", 15.999404924318},
+  {"F", 18.998403162730},
+  {"Ne", 20.180046380520},
+  {"Na", 22.989769282000},
+  {"Mg", 24.305051619837},
+  {"Al", 26.981538530000},
+  {"Si", 28.085498705706},
+  {"P", 30.973761998420},
+  {"S", 32.064787406127},
+  {"Cl", 35.452937582608},
+  {"Ar", 39.947798563582},
+  {"K", 39.098300910086},
+  {"Ca", 40.078022511018},
+  {"Sc", 44.955908280000},
+  {"Ti", 47.866744962722},
+  {"V", 50.941465037425},
+  {"Cr", 51.996131755434},
+  {"Mn", 54.938043910000},
+  {"Fe", 55.845144433866},
+  {"Co", 58.933194290000},
+  {"Ni", 58.693347109948},
+  {"Cu", 63.546039945830},
+  {"Zn", 65.377782529525},
+  {"Ga", 69.723066072594},
+  {"Ge", 72.627550164687},
+  {"As", 74.921594570000},
+  {"Se", 78.959388557014},
+  {"Br", 79.903527780510},
+  {"Kr", 83.797999995326},
+  {"Rb", 85.467663595620},
+  {"Sr", 87.616644469620},
+  {"Y", 88.905840300000},
+  {"Zr", 91.223641597060},
+  {"Nb", 92.906373000000},
+  {"Mo", 95.959788541188},
+  {"Ru", 101.064940139160},
+  {"Rh", 102.905498000000},
+  {"Pd", 106.415327507340},
+  {"Ag", 107.868149634557},
+  {"Cd", 112.411557818268},
+  {"In", 114.818086629446},
+  {"Sn", 118.710112593011},
+  {"Sb", 121.759783673480},
+  {"Te", 127.603126484660},
+  {"I", 126.904471900000},
+  {"Xe", 131.292761447791},
+  {"Cs", 132.905451961000},
+  {"Ba", 137.326891628632},
+  {"La", 138.905468873713},
+  {"Ce", 140.115730737855},
+  {"Pr", 140.907657600000},
+  {"Nd", 144.241596031827},
+  {"Sm", 150.366355711930},
+  {"Eu", 151.964378126380},
+  {"Gd", 157.252130646880},
+  {"Tb", 158.925354700000},
+  {"Dy", 162.499472819424},
+  {"Ho", 164.930328800000},
+  {"Er", 167.259082649669},
+  {"Tm", 168.934217900000},
+  {"Yb", 173.054150166317},
+  {"Lu", 174.966814957855},
+  {"Hf", 178.484978723400},
+  {"Ta", 180.947875636227},
+  {"W", 183.841777550513},
+  {"Re", 186.206704545600},
+  {"Os", 190.224859628240},
+  {"Ir", 192.216051652100},
+  {"Pt", 195.084456864931},
+  {"Au", 196.966568790000},
+  {"Hg", 200.599167034556},
+  {"Tl", 204.383412839360},
+  {"Pb", 207.216908063000},
+  {"Bi", 208.980399100000},
+  {"Th", 232.038055800000},
+  {"Pa", 231.035884200000},
   {"Pm", 145},
-  {"Sm", 150.362},
-  {"Eu", 151.9641},
-  {"Gd", 157.253},
-  {"Tb", 158.925352},
-  {"Dy", 162.5001},
-  {"Ho", 164.930322},
-  {"Er", 167.2593},
-  {"Tm", 168.934212},
-  {"Yb", 173.0545},
-  {"Lu", 174.96681},
-  {"Hf", 178.492},
-  {"Ta", 180.947882},
-  {"W", 183.841},
-  {"Re", 186.2071},
-  {"Os", 190.233},
-  {"Ir", 192.2173},
-  {"Pt", 195.0849},
-  {"Au", 196.9665694},
-  {"Hg", 200.592},
+  {"Tc", 98},
+  {"Po", 209},
+  {"At", 210},
+  {"Rn", 222},
+  {"Fr", 223},
+  {"Ra", 226},
   {"Ac", 227},
-  {"Th", 232.038062},
-  {"Pa", 231.035882},
-  {"U", 238.028913},
   {"Np", 237},
-  {"Pu", 244},
-  {"Am", 244},
-  {"Cm", 247},
-  {"Bk", 247},
-  {"Cf", 251},
-  {"Es", 252},
-  {"Fm", 257},
-  {"Md", 258},
-  {"No", 259},
-  {"Lr", 262},
-  {"Rf", 267},
-  {"Db", 268},
-  {"Sg", 269},
-  {"Bh", 270},
-  {"Hs", 269},
-  {"Cn", 285}
+  {"Pu", 244}
 };
 
 int RelAtomicMassTableSize()
@@ -286,43 +268,6 @@ double getCovRadiusfromAtomName(char *_atom)
   int i;
   const int sz = CovRadiusTableSize();
 
-  /*if(strcmp(atom, "C") == 0){
-    return relamptable[19].atomval;
-  }
-  else if(strcmp(atom, "H") == 0){
-    return relamptable[0].atomval;
-  }
-  else if(strcmp(atom, "D") == 0){
-    return relamptable[1].atomval;
-  }
-  else if(strcmp(atom, "O") == 0){
-    return relamptable[29].atomval;
-  }
-  else if(strcmp(atom, "N") == 0){
-    return relamptable[24].atomval;
-  }
-  else if(strcmp(atom, "S") == 0){
-    return relamptable[30].atomval;
-  }
-  else if(strcmp(atom, "P") == 0){
-    return relamptable[25].atomval;
-  }
-  else if(strcmp(atom, "F") == 0){
-    return relamptable[34].atomval;
-  }
-  else if(strcmp(atom, "Cl") == 0){
-    return relamptable[35].atomval;
-  }
-  else if(strcmp(atom, "Br") == 0){
-    return relamptable[36].atomval;
-  }
-  else if(strcmp(atom, "I") == 0){
-    return relamptable[37].atomval;
-  }
-  else if(strcmp(atom, "") == 0){
-    return 0.;
-  }
-  else{*/
     int id = 0;
     for(i = 0; i < sz; i++){
       if(strcmp(atom, covradiustable[i].atom) == 0){
@@ -331,7 +276,6 @@ double getCovRadiusfromAtomName(char *_atom)
       }
     }
     return covradiustable[id].atomval;
-  /*}*/
 }
 
 #define MAX_ATOMS 19
@@ -441,37 +385,37 @@ double getAtomWeightfromAtomName(char *_atom){
   int i;
   const int sz = sizeof(relamptable) / sizeof(relamptable[0]);
   if(strcmp(atom, "C") == 0){
-    return relamptable[19].atomval;
+    return relamptable[5].atomval;
   }
   else if(strcmp(atom, "H") == 0){
     return relamptable[0].atomval;
   }
   else if(strcmp(atom, "D") == 0){
-    return relamptable[1].atomval;
+    return 2.01410177812;
   }
   else if(strcmp(atom, "O") == 0){
-    return relamptable[29].atomval;
+    return relamptable[7].atomval;
   }
   else if(strcmp(atom, "N") == 0){
-    return relamptable[24].atomval;
+    return relamptable[6].atomval;
   }
   else if(strcmp(atom, "S") == 0){
-    return relamptable[30].atomval;
+    return relamptable[15].atomval;
   }
   else if(strcmp(atom, "P") == 0){
-    return relamptable[25].atomval;
+    return relamptable[14].atomval;
   }
   else if(strcmp(atom, "F") == 0){
-    return relamptable[34].atomval;
+    return relamptable[8].atomval;
   }
   else if(strcmp(atom, "Cl") == 0){
-    return relamptable[35].atomval;
+    return relamptable[16].atomval;
   }
   else if(strcmp(atom, "Br") == 0){
-    return relamptable[36].atomval;
+    return relamptable[34].atomval;
   }
   else if(strcmp(atom, "I") == 0){
-    return relamptable[37].atomval;
+    return relamptable[51].atomval;
   }
   else if(strcmp(atom, "") == 0){
     return 0.;
@@ -490,172 +434,172 @@ double getAtomWeightfromAtomName(char *_atom){
 double getExactAtomWeightfromAtomName(char *_atom){
   char *atom = StrTrim(_atom);
   if(strcmp(atom, "C") == 0){
-    return 12.;
+    return 12.000000000000;
   }
   else if(strcmp(atom, "H") == 0){
-    return 1.00782503207;
+    return 1.007825032230;
   }
   else if(strcmp(atom, "D") == 0){
-    return 2.0141017778;
+    return 2.01410177812;
   }
   else if(strcmp(atom, "Na") == 0){
-    return 22.989769280929;
+    return 22.989769282000;
   }
   else if(strcmp(atom, "K") == 0){
-    return 38.9637066820;
+    return 38.963706486400;
   }
   else if(strcmp(atom, "Ca") == 0){
-    return 39.9625909822;
+    return 39.962590863000;
   }
   else if(strcmp(atom, "O") == 0){
-    return  15.9949146195616;
+    return  15.994914619570;
   }
   else if(strcmp(atom, "N") == 0){
-    return 14.00307400486;
+    return 14.003074004430;
   }
   else if(strcmp(atom, "S") == 0){
-    return 31.9720710015;
+    return 31.972071174400;
   }
   else if(strcmp(atom, "P") == 0){
-    return 30.9737616320;
+    return 30.973761998420;
   }
   else if(strcmp(atom, "F") == 0){
-    return  18.998403227;
+    return 18.998403162730;
   }
   else if(strcmp(atom, "Cl") == 0){ /*Cl 35*/
-    return  34.968852684;
+    return 34.968852682000;
   }
   else if(strcmp(atom, "Br") == 0){
-    return 78.918337122;
+    return 78.918337600000;
   }
   else if(strcmp(atom, "I") == 0){
-    return 126.9044734;
+    return 126.904471900000;
   }
   else if(strcmp(atom, "B") == 0){
-    return 11.00930544;
+    return 11.009305360000;
   }
   else if(strcmp(atom, "Si") == 0){
-    return 27.9769265325;
+    return 27.976926534650;
   }
   else if(strcmp(atom, "Ti") == 0){
-    return 47.94794639;
+    return 47.947941980000;
   }
   else if(strcmp(atom, "Ni") == 0){
-    return 57.93534297;
+    return 57.935342410000;
   }
   else if(strcmp(atom, "Se") == 0){
-    return 79.916521321;
+    return 79.916521800000;
   }
   else if(strcmp(atom, "Sn") == 0){
-    return 111.9048185;
+    return 119.902201630000;
   }
   else if(strcmp(atom, "Cu") == 0){
-    return 62.92959756;
+    return 62.929597720000;
   }
   else if(strcmp(atom, "Fe") == 0){
-    return 55.93493757;
+    return 55.934936330000;
   }
   else if(strcmp(atom, "Mg") == 0){
-    return 23.98504170014;
+    return 23.985041697000;
   }
   else if(strcmp(atom, "Zn") == 0){
-    return 63.92914227;
+    return 63.929142010000;
   }
   else if(strcmp(atom, "Mn") == 0){
-    return 54.93804517;
+    return 54.938043910000;
   }
   else if(strcmp(atom, "Co") == 0){
-    return 58.93319507;
+    return 58.933194290000;
   }
   else if(strcmp(atom, "Cr") == 0){
-    return 51.94050758;
+    return 51.940506230000;
   }
   else if(strcmp(atom, "Li") == 0){
-    return 7.016004558;
+    return 7.016003436600;
   }
   else if(strcmp(atom, "As") == 0){
-    return 74.921596520;
+    return 74.921594570000;
   }
   else if(strcmp(atom, "Cd") == 0){
-    return 113.903358529;
+    return 113.903365090000;
   }
   else if(strcmp(atom, "Hg") == 0){
-    return 201.97064306;
+    return 201.970643400000;
   }
   else if(strcmp(atom, "Mo") == 0){
-    return 97.905408221;
+    return 97.905404820000;
   }
   else if(strcmp(atom, "Ti") == 0){
-    return 47.94794639;
+    return 47.947941980000;
   }
   else if(strcmp(atom, "V") == 0){
-    return 50.943959511;
+    return 50.943957040000;
   }
   else if(strcmp(atom, "Al") == 0){
-    return 26.9815386312;
+    return 26.981538530000;
   }
   else if(strcmp(atom, "Au") == 0){
-    return 196.96656876;
+    return 196.966568790000;
   }
   else if(strcmp(atom, "Ba") == 0){
-    return 137.90524725;
+    return 137.905247000000;
   }
   else if(strcmp(atom, "Pb") == 0){
-    return 207.976652113;
+    return 207.976652500000;
   }
   else if(strcmp(atom, "W") == 0){
-    return 183.95093129;
+    return 183.950930920000;
   }
   else if(strcmp(atom, "Be") == 0){
-    return 9.01218224;
+    return 9.012183065000;
   }
   else if(strcmp(atom, "Ag") == 0){
-    return 106.9050975;
+    return 106.905091600000;
   }
   else if(strcmp(atom, "Ge") == 0){
-    return 73.921177818;
+    return 73.921177761000;
   }
   else if(strcmp(atom, "Rb") == 0){
-    return 84.91178973812;
+    return 84.911789737900;
   }
   else if(strcmp(atom, "Rh") == 0){
-    return 102.9055043;
+    return 102.905498000000;
   }
   else if(strcmp(atom, "Sb") == 0){
-    return 120.903815724;
+    return 120.903812000000;
   }
   else if(strcmp(atom, "Ru") == 0){
-    return 101.904349322;
+    return 101.904344100000;
   }
   else if(strcmp(atom, "Xe") == 0){
-    return 131.90415509;
+    return 131.904155085600;
   }
   else if(strcmp(atom, "Ta") == 0){
-    return 180.947995820;
+    return 180.947995800000;
   }
   else if(strcmp(atom, "Tl") == 0){
-    return 204.974427514;
+    return 204.974427800000;
   }
   else if(strcmp(atom, "Ra") == 0){
     return 226.025409825;
   }
   else if(strcmp(atom, "Sr") == 0){
-    return 87.905612257197;
+    return 87.905612500000;
   }
   else if(strcmp(atom, "Pt") == 0){
-    return 194.96479119;
+    return 194.964791700000;
   }
   else if(strcmp(atom, "Te") == 0){
-    return 129.906224421;
+    return 129.906222748000;
   }
   else if(strcmp(atom, "Bi") == 0){
-    return 208.980398716;
+    return 208.980399100000;
   }
   else if(strcmp(atom, "Rn") == 0){
     return 208.980398716;
   }
   else if(strcmp(atom, "Gd") == 0){
-    return 159.927054127;
+    return 157.924112300000;
   }
   else if(strcmp(atom, "") == 0){
     return 0.;
