@@ -42,7 +42,7 @@ void DelVoxel(VOXEL **v);
  * col3: z coord
  * col4: voxel value
  */
-void Voxel2Matrix(VOXEL *v, matrix **m);
+void Voxel2Matrix(VOXEL *v, matrix *m);
 
 
 /* Function to load probes and other parameters */
@@ -58,7 +58,14 @@ void Voxel2Matrix(VOXEL *v, matrix **m);
  * Output:
  * field (matrix strct): voxel output
  */
-void FieldCalculator(ForceField ff, MOLECULE *molecule, int formal_charge, size_t npnt, enum RADIUS_TYPE rtype, int probe_id, double pdistance, matrix **field);
+void FieldCalculator(ForceField ff,
+                     MOLECULE *molecule,
+                     int formal_charge,
+                     size_t npnt,
+                     enum RADIUS_TYPE rtype,
+                     int probe_id,
+                     double pdistance,
+                     matrix *field);
 
 
 /*
@@ -66,14 +73,20 @@ void FieldCalculator(ForceField ff, MOLECULE *molecule, int formal_charge, size_
  * and the partial charges of the molecules. The Electrostatic Potential
  * is expressed in kcal/mol
  */
-void SphericalElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_TYPE rtype, matrix **epot);
+void SphericalElectrostaticPotentialCalculator(MOLECULE *molecule,
+                                               int npnt,
+                                               enum RADIUS_TYPE rtype,
+                                               matrix *epot);
 
 /*
  * Calculate the Van der Waals potential using the point charge approach
  * and the UFF VdW parameters.
  * The potential is expressed in kcal/mol
  */
-void SphericalVdWPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_TYPE rtype, matrix **vdwp);
+void SphericalVdWPotentialCalculator(MOLECULE *molecule,
+                                     int npnt,
+                                     enum RADIUS_TYPE rtype,
+                                     matrix *vdwp);
 
 
 /*
@@ -82,7 +95,10 @@ void SphericalVdWPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_T
  * The potential is expressed in pauling relative electronegativity scale
  * It seems to be correlated with the molecular shape...
  */
-void SphericalENegPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_TYPE rtype, matrix **enegp);
+void SphericalENegPotentialCalculator(MOLECULE *molecule,
+                                      int npnt,
+                                      enum RADIUS_TYPE rtype,
+                                      matrix *enegp);
 
 
 /*
@@ -90,7 +106,12 @@ void SphericalENegPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_
  * and epsilon sigma external properties
  * The potential is expressed in kcal/mol
  */
-void SphericalLJPotentialCalculator(MOLECULE *molecule, AtomsProperty *epsilon, AtomsProperty *sigma, int npnt, enum RADIUS_TYPE rtype, matrix **gpot);
+void SphericalLJPotentialCalculator(MOLECULE *molecule,
+                                    AtomsProperty *epsilon,
+                                    AtomsProperty *sigma,
+                                    int npnt,
+                                    enum RADIUS_TYPE rtype,
+                                    matrix *gpot);
 
 /*
  * Calculate the Electronegativity potential (distribution)
@@ -98,7 +119,11 @@ void SphericalLJPotentialCalculator(MOLECULE *molecule, AtomsProperty *epsilon, 
  * The potential is expressed in pauling relative electronegativity scale
  * It seems to be correlated with the molecular shape...
  */
-void SphericalGenericPotentialCalculator(MOLECULE *molecule, AtomsProperty *lst,  int npnt, enum RADIUS_TYPE rtype, matrix **enegp);
+void SphericalGenericPotentialCalculator(MOLECULE *molecule,
+                                         AtomsProperty *lst,
+                                         int npnt,
+                                         enum RADIUS_TYPE rtype,
+                                         matrix *enegp);
 
 
 /*

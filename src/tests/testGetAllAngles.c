@@ -29,7 +29,7 @@ int main(int argc, char **argv)
                    j,
                    i,
                    &angle,
-                   &aids);
+                   aids);
        if(FLOAT_EQ(angle, -9999.f, 1e-1) != 1){
          printf("ids: %zu %zu %zu angle: %f\n", aids->data[0],
                                                 aids->data[1],

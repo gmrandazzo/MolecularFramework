@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     VoxelElectrostaticPotentialCalculator(&molecule, grid_resolution, grid_size, vanderwaals, &v);
     matrix *field;
     initMatrix(&field);
-    Voxel2Matrix(v, &field);
+    Voxel2Matrix(v, field);
     //Calculate Histograms
     x = min;
     for(int j = 0; j < n_esteps; j++){

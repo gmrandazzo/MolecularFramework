@@ -66,18 +66,18 @@ int main(int argc, char **argv)
   int formal_charge = atoi(argv[2]);
   int n_fpnt = 200;
    /* N as NH3 Hydrogen bond donor to describe hydrogen bond acceptors in molecule */
-  FieldCalculator(ff, &molecule, formal_charge, 100, vanderwaals, 34, 0.f, &Nfield);
+  FieldCalculator(ff, &molecule, formal_charge, 100, vanderwaals, 34, 0.f, Nfield);
   /*RefitFields(&Nfield, -1, 1);*/
   /* O as Hydrogen bond acceptor to describe hydrogen bond donor in molecule */
-  FieldCalculator(ff, &molecule, formal_charge, 100, vanderwaals, 32, 0.f, &O_WATfield);
+  FieldCalculator(ff, &molecule, formal_charge, 100, vanderwaals, 32, 0.f, O_WATfield);
   /*RefitFields(&O_WATfield, -1, 1);*/
   /* C as Hydrophobic interaction with an aliphatic in molecule */
-  FieldCalculator(ff, &molecule, formal_charge,  n_fpnt, vanderwaals, 36, 0.f, &C_R_field);
+  FieldCalculator(ff, &molecule, formal_charge,  n_fpnt, vanderwaals, 36, 0.f, C_R_field);
   /* C as Hydrophobic interaction with an aromatic in molecule  */
-  FieldCalculator(ff, &molecule, formal_charge, n_fpnt, vanderwaals, 38, 0.f, &C_aro_field);
+  FieldCalculator(ff, &molecule, formal_charge, n_fpnt, vanderwaals, 38, 0.f, C_aro_field);
   /*RefitFields(&C_field, -1, 1);*/
   /* H a shape interaction with an hydrogen in molecule  */
-  FieldCalculator(ff, &molecule, formal_charge, n_fpnt, vanderwaals, 32, 0.f, &H_field);
+  FieldCalculator(ff, &molecule, formal_charge, n_fpnt, vanderwaals, 32, 0.f, H_field);
   /*RefitFields(&H_field, -1, 1);*/
 
   /* Single field descriptors */

@@ -220,11 +220,11 @@ void ParseMolecularFormula(char* mformula, strvector **atom_names, ivector **n_a
         atom[ait] = '\0';
         n_atom[nit] = '\0';
         na = atof(n_atom);
-        StrVectorAppend(atom_names, atom);
+        StrVectorAppend((*atom_names), atom);
         if(FLOAT_EQ(na, 0, 1e-4))
-          IVectorAppend(n_atoms, 1);
+          IVectorAppend((*n_atoms), 1);
         else
-          IVectorAppend(n_atoms, na);
+          IVectorAppend((*n_atoms), na);
 
         memset(atom, '\0', 100);
         memset(n_atom, '\0', 100);
@@ -241,11 +241,11 @@ void ParseMolecularFormula(char* mformula, strvector **atom_names, ivector **n_a
           if(isatom(atom) == 1){
             /*Do calculation!*/
             na = atof(n_atom);
-            StrVectorAppend(atom_names, atom);
+            StrVectorAppend((*atom_names), atom);
             if(FLOAT_EQ(na, 0, 1e-4))
-              IVectorAppend(n_atoms, 1);
+              IVectorAppend((*n_atoms), 1);
             else
-              IVectorAppend(n_atoms, na);
+              IVectorAppend((*n_atoms), na);
 
 
             memset(atom, '\0', 100);
@@ -271,11 +271,11 @@ void ParseMolecularFormula(char* mformula, strvector **atom_names, ivector **n_a
   }
 
   na = atof(n_atom);
-  StrVectorAppend(atom_names, atom);
+  StrVectorAppend((*atom_names), atom);
   if(FLOAT_EQ(na, 0, 1e-4))
-    IVectorAppend(n_atoms, 1);
+    IVectorAppend((*n_atoms), 1);
   else
-    IVectorAppend(n_atoms, na);
+    IVectorAppend((*n_atoms), na);
 }
 
 void GetMWfromMolecularFormula(char* mformula, double *mw)

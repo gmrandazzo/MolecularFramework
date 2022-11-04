@@ -63,7 +63,7 @@ void CalcMolecularDiffusion_WilkeChang(MOLECULE molecule, double *diff);
  * Calculate Atomic Geometrical Fingerprint
  */
 
-void FP2Matrix(dvector *fp, matrix **m);
+void FP2Matrix(dvector *fp, matrix *m);
 
 void Get3DAtomSumDistanceFingerprint(MOLECULE molecule,
                                      int atom_id,
@@ -253,7 +253,7 @@ void Get3DDihedralAngle(MOLECULE molecule,
                        int atom_id1,
                        int atom_id2,
                        double *dh_angle,
-                       uivector **dhids);
+                       uivector *dhids);
 
 /* Calculate the dihedral angle
 * for a given couple of atom (a1,a2) connected
@@ -264,5 +264,5 @@ void Get3DAngle(MOLECULE molecule,
                int atom_id1,
                int atom_id2,
                double *angle,
-               uivector **aid);
+               uivector *aid);
 #endif

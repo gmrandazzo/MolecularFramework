@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     RandomConformationRotation(&molecule);
     matrix *field;
     initMatrix(&field);
-    SphericalElectrostaticPotentialCalculator(&molecule, npnt, vanderwaals, &field);
+    SphericalElectrostaticPotentialCalculator(&molecule, npnt, vanderwaals, field);
     /*Voxel2Matrix(v, &field);*/
     //Calculate Histograms
     x = min;

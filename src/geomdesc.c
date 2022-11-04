@@ -199,11 +199,11 @@ double CalcPlanarity(matrix *coord)
   /* >>> compute planarity */
   initMatrix(&residuals);
 
-  GetResidualMatrix(coord, m, 2, &residuals);
+  GetResidualMatrix(coord, m, 2, residuals);
 
   /* Calculate STDEV for residuals and then the results is the descriptor */
   initDVector(&colsdev);
-  MatrixColSDEV(residuals, &colsdev);
+  MatrixColSDEV(residuals, colsdev);
 
   planarity = sqrt(square(getDVectorValue(colsdev, 0))+square(getDVectorValue(colsdev, 1))+square(getDVectorValue(colsdev, 2)));
 
@@ -442,7 +442,7 @@ int getAtomTypeFPPos(const char *type)
  * Convert 3D Fingerprint to a 2D matrix representation.
  * This representation is useful for convolutional neural networks
  */
-void FP2Matrix(dvector *fp, matrix **m)
+void FP2Matrix(dvector *fp, matrix *m)
 {
   size_t i, j, c;
   size_t nsteps = (fp->size/MAX_3DFP_ATOMS);
@@ -450,7 +450,7 @@ void FP2Matrix(dvector *fp, matrix **m)
   c = 0;
   for(i = 0; i < nsteps; i++){
     for(j = 0; j < MAX_3DFP_ATOMS; j++){
-      (*m)->data[j][i] = fp->data[c];
+      m->data[j][i] = fp->data[c];
       c++;
     }
   }
@@ -628,7 +628,7 @@ void GetAngleSumFingerprint(MOLECULE molecule, int atom_id, dvector **fp)
   for(i = 0; i < molecule.n_atoms; i++){
     if(i != atom_id){
       initUIVector(&aid);
-      Get3DAngle(molecule, atom_id, i, &alpha, &aid);
+      Get3DAngle(molecule, atom_id, i, &alpha, aid);
       if(FLOAT_EQ(alpha, -9999.0, 1e-1)){
         DelUIVector(&aid);
         continue;
@@ -1061,10 +1061,10 @@ void Get3DEPotDihedralAngleWeightedAtomFingerprint(MOLECULE molecule,
   initUIVector(&a_conn);
   for(i = 0; i < molecule.n_bonds; i++){
     if(molecule.bonds[i].origin_atom_id == atom_id){
-      UIVectorAppend(&a_conn, molecule.bonds[i].target_atom_id);
+      UIVectorAppend(a_conn, molecule.bonds[i].target_atom_id);
     }
     else if(molecule.bonds[i].target_atom_id == atom_id){
-      UIVectorAppend(&a_conn, molecule.bonds[i].origin_atom_id);
+      UIVectorAppend(a_conn, molecule.bonds[i].origin_atom_id);
     }
     else{
       continue;
@@ -1455,7 +1455,7 @@ void Get3DDihedralAngle(MOLECULE molecule,
                         int atom_id1,
                         int atom_id2,
                         double *dh_angle,
-                        uivector **dhids)
+                        uivector *dhids)
 {
   size_t i, j, ai, aj;
   int compute_dihedral = 0;
@@ -1567,10 +1567,10 @@ void Get3DDihedralAngle(MOLECULE molecule,
     else{
       if(dhids != NULL){
         UIVectorResize(dhids, 4);
-        (*dhids)->data[0] = atom_id1;
-        (*dhids)->data[1] = ai;
-        (*dhids)->data[2] = aj;
-        (*dhids)->data[3] = atom_id2;
+        dhids->data[0] = atom_id1;
+        dhids->data[1] = ai;
+        dhids->data[2] = aj;
+        dhids->data[3] = atom_id2;
       }
     }
   }
@@ -1585,7 +1585,7 @@ void Get3DAngle(MOLECULE molecule,
                 int atom_id1,
                 int atom_id2,
                 double *angle,
-                uivector **aid)
+                uivector *aid)
 {
   size_t i, j, c;
   int compute_angle = 0;
@@ -1677,9 +1677,9 @@ void Get3DAngle(MOLECULE molecule,
     else{
       if(aid != NULL){
         UIVectorResize(aid, 3);
-        (*aid)->data[0] = atom_id1;
-        (*aid)->data[1] = c;
-        (*aid)->data[2] = atom_id2;
+        aid->data[0] = atom_id1;
+        aid->data[1] = c;
+        aid->data[2] = atom_id2;
       }
     }
   }

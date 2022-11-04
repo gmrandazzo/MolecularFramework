@@ -48,10 +48,10 @@ int main(int argc, char **argv)
     // Tokenize
     for(tl = strtok(Trim(l), " \t"), j = 0; tl; tl = strtok (NULL, " \t"), j++){
       if(j == 0){
-        UIVectorAppend(&aidA, atoi(tl));
+        UIVectorAppend(aidA, atoi(tl));
       }
       else if(j == 1){
-        UIVectorAppend(&aidB, atoi(tl));
+        UIVectorAppend(aidB, atoi(tl));
       }
       else{
         continue;

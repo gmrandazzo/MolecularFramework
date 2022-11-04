@@ -28,10 +28,10 @@ int main(int argc, char **argv)
   matrix *adjmx;
   initMatrix(&adjmx);
   if(atoi(argv[2]) == 0){
-    BondLenghtAdjMatGen(&molecule, &adjmx);
+    BondLenghtAdjMatGen(&molecule, adjmx);
   }
   else{
-    BondColorAdjMatGen(&molecule,&adjmx);
+    BondColorAdjMatGen(&molecule, adjmx);
   }
 
   printf("atom types,");

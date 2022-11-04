@@ -22,7 +22,7 @@
  * 3) Count the number of points cotained between the two sphere and add the number to the spectra.
  * 4) Continue the calculaiton until the molecule is inside the sphere.
  */
-void SphericalFieldAnalysis(MOLECULE molecule, matrix *field, double radius_step, matrix **spectra)
+void SphericalFieldAnalysis(MOLECULE molecule, matrix *field, double radius_step, matrix *spectra)
 {
   size_t i;
   double ccx, ccy, ccz, tot_w;

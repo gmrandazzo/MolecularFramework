@@ -54,8 +54,8 @@ void RandomConformationRotation(MOLECULE *m);
 double ICP(matrix *src_pts,
            matrix *dst_pts,
            double tolerance,
-           matrix **R,
-           dvector **t,
+           matrix *R,
+           dvector *t,
            MOLECULE *src_mol);
 /*
  * Align conformers of the same molecule (molecule m1 to molecule m2) according

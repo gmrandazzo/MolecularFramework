@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     FILE *f = fopen(argv[6], "w");
     matrix *m;
     initMatrix(&m);
-    FP2Matrix(fp, &m);
+    FP2Matrix(fp, m);
     PrintMatrix(m);
     for(int i = 0; i < m->row; i++){
       for(int j = 0; j < m->col-1; j++){

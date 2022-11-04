@@ -28,46 +28,46 @@ void TranslateConformation(MOLECULE m, double cx, double cy, double cz)
 /*
  * pure translation
  */
-void mk3dtr(double x, double y, double z, matrix **t)
+void mk3dtr(double x, double y, double z, matrix *t)
 {
   ResizeMatrix(t, 4, 4);
-  (*t)->data[0][0] = (*t)->data[1][1] = (*t)->data[2][2] = (*t)->data[3][3] = 1.f;
-  (*t)->data[0][3] = x;
-  (*t)->data[1][3] = y;
-  (*t)->data[2][3] = z;
+  t->data[0][0] = t->data[1][1] = t->data[2][2] = t->data[3][3] = 1.f;
+  t->data[0][3] = x;
+  t->data[1][3] = y;
+  t->data[2][3] = z;
 }
 
 /*
  * pure rotation around x axis
  */
-void mk3drotx(double theta, matrix **xr)
+void mk3drotx(double theta, matrix *xr)
 {
   ResizeMatrix(xr, 4, 4);
-  (*xr)->data[0][0] = (*xr)->data[1][1] = (*xr)->data[2][2] = (*xr)->data[3][3] = 1.f;
-  (*xr)->data[1][1] = cos(theta); (*xr)->data[1][2] = -sin(theta);
-  (*xr)->data[2][1] = sin(theta); (*xr)->data[2][2] = cos(theta);
+  xr->data[0][0] = xr->data[1][1] = xr->data[2][2] = xr->data[3][3] = 1.f;
+  xr->data[1][1] = cos(theta); xr->data[1][2] = -sin(theta);
+  xr->data[2][1] = sin(theta); xr->data[2][2] = cos(theta);
 }
 
 /*
  * pure rotation around y axis
  */
-void mk3droty(double theta, matrix **yr)
+void mk3droty(double theta, matrix *yr)
 {
   ResizeMatrix(yr, 4, 4);
-  (*yr)->data[0][0] = (*yr)->data[1][1] = (*yr)->data[2][2] = (*yr)->data[3][3] = 1.f;
-  (*yr)->data[0][0] = cos(theta); (*yr)->data[0][2] = -sin(theta);
-  (*yr)->data[2][0] = sin(theta); (*yr)->data[2][2] = cos(theta);
+  yr->data[0][0] = yr->data[1][1] = yr->data[2][2] = yr->data[3][3] = 1.f;
+  yr->data[0][0] = cos(theta); yr->data[0][2] = -sin(theta);
+  yr->data[2][0] = sin(theta); yr->data[2][2] = cos(theta);
 }
 
 /*
  * pure rotation around z axis
  */
-void mk3drotz(double theta, matrix **zr)
+void mk3drotz(double theta, matrix *zr)
 {
   ResizeMatrix(zr, 4, 4);
-  (*zr)->data[0][0] = (*zr)->data[1][1] = (*zr)->data[2][2] = (*zr)->data[3][3] = 1.f;
-  (*zr)->data[0][0] = cos(theta); (*zr)->data[0][1] = -sin(theta);
-  (*zr)->data[1][0] = sin(theta); (*zr)->data[1][1] = cos(theta);
+  zr->data[0][0] = zr->data[1][1] = zr->data[2][2] = zr->data[3][3] = 1.f;
+  zr->data[0][0] = cos(theta); zr->data[0][1] = -sin(theta);
+  zr->data[1][0] = sin(theta); zr->data[1][1] = cos(theta);
 }
 
 /*
@@ -105,8 +105,8 @@ void RandomConformationRotation(MOLECULE *m)
   cy /= (double)m->n_atoms;
   cz /= (double)m->n_atoms;
 
-  mk3dtr(-cx, -cy, -cz, &tr);
-  mk3dtr(cx/2., cy/2., cz/2., &trb);
+  mk3dtr(-cx, -cy, -cz, tr);
+  mk3dtr(cx/2., cy/2., cz/2., trb);
 
   struct timeval tv;
   gettimeofday(&tv,NULL);
@@ -121,9 +121,9 @@ void RandomConformationRotation(MOLECULE *m)
   roll = randfrom(-_pi_, _pi_);
   /*printf("%f %f %f\n", yaw, pitch, roll);*/
 
-  mk3drotx(roll, &xr);
-  mk3droty(pitch, &yr);
-  mk3drotz(yaw, &zr);
+  mk3drotx(roll, xr);
+  mk3droty(pitch, yr);
+  mk3drotz(yaw, zr);
 
   NewMatrix(&zyr, 4, 4);
   NewMatrix(&zyxr, 4, 4);
@@ -201,8 +201,8 @@ void Random3DMatrixRotation(matrix *A)
   cy /= (double)A->row;
   cz /= (double)A->row;
 
-  mk3dtr(-cx, -cy, -cz, &tr);
-  mk3dtr(cx/2., cy/2., cz/2., &trb);
+  mk3dtr(-cx, -cy, -cz, tr);
+  mk3dtr(cx/2., cy/2., cz/2., trb);
 
   struct timeval tv;
   gettimeofday(&tv,NULL);
@@ -217,9 +217,9 @@ void Random3DMatrixRotation(matrix *A)
   roll = randfrom(-_pi_, _pi_);
   /*printf("%f %f %f\n", yaw, pitch, roll);*/
 
-  mk3drotx(roll, &xr);
-  mk3droty(pitch, &yr);
-  mk3drotz(yaw, &zr);
+  mk3drotx(roll, xr);
+  mk3droty(pitch, yr);
+  mk3drotz(yaw, zr);
 
   NewMatrix(&zyr, 4, 4);
   NewMatrix(&zyxr, 4, 4);
@@ -283,7 +283,7 @@ void find_nn_points(matrix *src_pts,
   size_t i, j;
   matrix *dstmx;
   initMatrix(&dstmx);
-  EuclideanDistance(dst_pts, src_pts, &dstmx, 1);
+  EuclideanDistance(dst_pts, src_pts, dstmx, 1);
 
   /* dstmx
    * Every row in dstmx correspond to the src->row
@@ -328,7 +328,7 @@ void find_nn_points(matrix *src_pts,
 * 3) Find the translation t
 */
 
-void RotoTranslation(matrix *A, matrix *B, matrix **R, dvector **t)
+void RotoTranslation(matrix *A, matrix *B, matrix *R, dvector *t)
 {
   dvector *cm1, *cm2;
   matrix *AA_T, *BB, *H; /*used to calculate the covariance matrix H for the step 2 */
@@ -381,7 +381,7 @@ void RotoTranslation(matrix *A, matrix *B, matrix **R, dvector **t)
     initMatrix(&S);
     initMatrix(&VT);
     /*SVD(H, &U, &S, &VT);*/
-    SVDlapack(H, &U, &S, &VT);
+    SVDlapack(H, U, S, VT);
 
     /*puts("H");
     PrintMatrix(H);
@@ -400,18 +400,18 @@ void RotoTranslation(matrix *A, matrix *B, matrix **R, dvector **t)
 
     /* Calculate the rotation R */
     ResizeMatrix(R, m, m);
-    MatrixDotProduct(V, U_T, (*R));
+    MatrixDotProduct(V, U_T, R);
 
     /* Now R is the rotation matrix! */
     /* Check for the special reflection case */
-    if(MatrixDeterminant((*R)) < 0){
+    if(MatrixDeterminant(R) < 0){
       for(int j = 0; j < VT->col; j++){
         VT->data[VT->row-1][j] *=-1;
       }
       MatrixSet(V, 0.f);
       MatrixTranspose(VT, V);
-      MatrixSet((*R), 0.f);
-      MatrixDotProduct(V, U_T, (*R));
+      MatrixSet(R, 0.f);
+      MatrixDotProduct(V, U_T, R);
     }
 
     DelMatrix(&U_T);
@@ -427,10 +427,10 @@ void RotoTranslation(matrix *A, matrix *B, matrix **R, dvector **t)
     */
     dvector *Rcm;
     NewDVector(&Rcm, m);
-    MatrixDVectorDotProduct((*R), cm1, Rcm);
+    MatrixDVectorDotProduct(R, cm1, Rcm);
     DVectorResize(t, m);
-    for(size_t i = 0; i < (*t)->size; i++){
-      (*t)->data[i] = cm2->data[i] - Rcm->data[i];
+    for(size_t i = 0; i < t->size; i++){
+      t->data[i] = cm2->data[i] - Rcm->data[i];
     }
     DelDVector(&Rcm);
 
@@ -441,7 +441,7 @@ void RotoTranslation(matrix *A, matrix *B, matrix **R, dvector **t)
 
     /*
     PrintMatrix((*R));
-    PrintDVector((*t));
+    PrintDVector(t);
     */
 }
 
@@ -471,22 +471,22 @@ double RMSD(matrix *A, matrix *B)
   return rmsd;
 }
 
-void ComputeCoordinates(matrix *A_T, matrix *R, dvector *t, matrix **A_aligned_T)
+void ComputeCoordinates(matrix *A_T, matrix *R, dvector *t, matrix *A_aligned_T)
 {
   ResizeMatrix(A_aligned_T, A_T->row, A_T->col);
 
-  MatrixDotProduct(R, A_T, (*A_aligned_T));
+  MatrixDotProduct(R, A_T, A_aligned_T);
 
   for(int i = 0; i < A_T->col; i++){
     for(int j = 0; j < A_T->row; j++)
-      (*A_aligned_T)->data[j][i] += t->data[j];
+      A_aligned_T->data[j][i] += t->data[j];
   }
 }
 
 void ApplyTransformation(matrix *pts,
                          matrix *R,
                          dvector *t,
-                         matrix **pts_transformed)
+                         matrix *pts_transformed)
 {
   size_t i, j;
   matrix *pts_T, *pts_transformed_T;
@@ -501,7 +501,7 @@ void ApplyTransformation(matrix *pts,
     }
   }
 
-  MatrixTranspose(pts_transformed_T, (*pts_transformed));
+  MatrixTranspose(pts_transformed_T, pts_transformed);
   DelMatrix(&pts_transformed_T);
   DelMatrix(&pts_T);
 }
@@ -524,7 +524,7 @@ void RotoTranslateMolecule(MOLECULE m, matrix *R, dvector *t)
   DelMatrix(&A);
 
   NewMatrix(&A_aligned_T, 3, m.n_atoms);
-  ComputeCoordinates(A_T, R, t, &A_aligned_T);
+  ComputeCoordinates(A_T, R, t, A_aligned_T);
   DelMatrix(&A_T);
 
   for(int i = 0; i < m.n_atoms; i++){
@@ -538,8 +538,8 @@ void RotoTranslateMolecule(MOLECULE m, matrix *R, dvector *t)
 double ICP(matrix *src_pts_,
            matrix *dst_pts,
            double tolerance,
-           matrix **R,
-           dvector **t,
+           matrix *R,
+           dvector *t,
            MOLECULE *src_mol)
 {
     matrix *R_;
@@ -561,22 +561,22 @@ double ICP(matrix *src_pts_,
       find_nn_points(current_pts, dst_pts, &neigh_pts);
       initMatrix(&R_);
       initDVector(&t_);
-      RotoTranslation(src_pts, neigh_pts, &R_, &t_);
-      ApplyTransformation(src_pts, R_, t_, &current_pts);
+      RotoTranslation(src_pts, neigh_pts, R_, t_);
+      ApplyTransformation(src_pts, R_, t_, current_pts);
+      /*WARNING: THIS CODE IS HERE ONLY FOR DEBUGGING */
       if(src_mol != NULL){
-        /*debugging purpose*/
         char buf[24];
         snprintf(buf, 24, "tmp_%zu_mol_aligned.mol2", k);
         for(int i = 0; i < (*src_mol).n_atoms; i++){
           (*src_mol).atoms[i].coord.x = current_pts->data[i][0];
           (*src_mol).atoms[i].coord.y = current_pts->data[i][1];
           (*src_mol).atoms[i].coord.z = current_pts->data[i][2];
-        }        
+        }
         SaveMol2Molecule((*src_mol), buf);
       }
       double rmsd = RMSD(current_pts, neigh_pts);
       if(fabs(rmsd-last_rmsd) < tolerance){
-        MatrixCopy(R_, R);
+        MatrixCopy(R_, &R);
         DVectorCopy(t_, t);
         DelMatrix(&R_);
         DelDVector(&t_);
@@ -585,7 +585,7 @@ double ICP(matrix *src_pts_,
       else{
         //printf("%f -> %f\n", last_rmsd, rmsd);
         last_rmsd = rmsd;
-        MatrixCopy(R_, R);
+        MatrixCopy(R_, &R);
         DVectorCopy(t_, t);
         DelMatrix(&R_);
         DelDVector(&t_);
@@ -601,7 +601,7 @@ double ICP(matrix *src_pts_,
 
 
 /* get3DAnchorPoints act on 3D coordinates */
-void get3DAnchorPoints(matrix *c, uivector *aidx, size_t npnts, uivector **aid)
+void get3DAnchorPoints(matrix *c, uivector *aidx, size_t npnts, uivector *aid)
 {
  /*
   * c is the matrix with xyz coordinates
@@ -635,7 +635,7 @@ void get3DAnchorPoints(matrix *c, uivector *aidx, size_t npnts, uivector **aid)
   for(i = 0; i < npnts; i++){
     matrix *dst;
     initMatrix(&dst);
-    EuclideanDistance(cc, points, &dst, 1);
+    EuclideanDistance(cc, points, dst, 1);
     dvector *dst_sum;
     NewDVector(&dst_sum, c->row);
     for(j = 0; j < dst->row; j++){
@@ -663,19 +663,19 @@ void get3DAnchorPoints(matrix *c, uivector *aidx, size_t npnts, uivector **aid)
     newrow->data[0] = c->data[max_dst_indx][0];
     newrow->data[1] = c->data[max_dst_indx][1];
     newrow->data[2] = c->data[max_dst_indx][2];
-    MatrixAppendRow(&points, newrow);
+    MatrixAppendRow(points, newrow);
     DelDVector(&newrow);
     DelMatrix(&dst);
     DelDVector(&dst_sum);
-    UIVectorRemoveAt(&caidx, max_dst_indx);
-    MatrixDeleteRowAt(&cc, max_dst_indx);
+    UIVectorRemoveAt(caidx, max_dst_indx);
+    MatrixDeleteRowAt(cc, max_dst_indx);
   }
   DelMatrix(&points);
   DelMatrix(&cc);
   DelUIVector(&caidx);
 }
 
-void get3DAnchorPointsMaxDis(matrix *c, uivector *aidx, size_t npoints, uivector **aid)
+void get3DAnchorPointsMaxDis(matrix *c, uivector *aidx, size_t npoints, uivector *aid)
 {
  /*
   * c is the matrix with xyz coordinates
@@ -686,17 +686,17 @@ void get3DAnchorPointsMaxDis(matrix *c, uivector *aidx, size_t npoints, uivector
   int run = SIGSCIENTIFICRUN;
   uivector *pnt;
   initUIVector(&pnt);
-  MaxDis(c,  npoints, 0, &pnt, 4, &run);
+  MaxDis(c,  npoints, 0, pnt, 4, &run);
 
   UIVectorResize(aid, npoints);
   for(int i = 0; i < pnt->size; i++){
-    (*aid)->data[i] = aidx->data[pnt->data[i]];
+    aid->data[i] = aidx->data[pnt->data[i]];
   }
   DelUIVector(&pnt);
 }
 
 /* getAnchorPoints act on 2D pca plane*/
-void getAnchorPoints(matrix *scores, uivector *aidx, uivector **aid)
+void getAnchorPoints(matrix *scores, uivector *aidx, uivector *aid)
 {
   double minx, miny, maxx, maxy;
   minx = scores->data[0][0];
@@ -705,35 +705,35 @@ void getAnchorPoints(matrix *scores, uivector *aidx, uivector **aid)
   maxy = scores->data[0][1];
 
   UIVectorResize(aid, 4);
-  (*aid)->data[0] = aidx->data[0];
-  (*aid)->data[1] = aidx->data[0];
-  (*aid)->data[2] = aidx->data[0];
-  (*aid)->data[3] = aidx->data[0];
+  aid->data[0] = aidx->data[0];
+  aid->data[1] = aidx->data[0];
+  aid->data[2] = aidx->data[0];
+  aid->data[3] = aidx->data[0];
   for(int i = 1; i < scores->row; i++){
     if(scores->data[i][0] < minx){
       minx = scores->data[i][0];
-      (*aid)->data[0] = aidx->data[i];
+      aid->data[0] = aidx->data[i];
     }
 
     if(scores->data[i][0] > maxx){
       maxx = scores->data[i][0];
-      (*aid)->data[1] = aidx->data[i];
+      aid->data[1] = aidx->data[i];
     }
 
     if(scores->data[i][1] < miny){
       miny = scores->data[i][0];
-      (*aid)->data[2] = aidx->data[i];
+      aid->data[2] = aidx->data[i];
     }
 
     if(scores->data[i][1] > maxy){
       maxy = scores->data[i][0];
-      (*aid)->data[3] = aidx->data[i];
+      aid->data[3] = aidx->data[i];
     }
   }
 }
 
 /*DEPRECATED*/
-void getMatrixof_H_Coordinates(MOLECULE m, matrix **c, uivector **aidx)
+void getMatrixof_H_Coordinates(MOLECULE m, matrix *c, uivector *aidx)
 {
   int row = 0;
   for(int i = 0; i <  m.n_atoms; i++){
@@ -749,10 +749,10 @@ void getMatrixof_H_Coordinates(MOLECULE m, matrix **c, uivector **aidx)
   row = 0;
   for(int i = 0; i < m.n_atoms; i++){
     if(strcmp(m.atoms[i].type, "H") == 0){
-      (*c)->data[row][0] = m.atoms[i].coord.x;
-      (*c)->data[row][1] = m.atoms[i].coord.y;
-      (*c)->data[row][2] = m.atoms[i].coord.z;
-      (*aidx)->data[row] = i+1;
+      c->data[row][0] = m.atoms[i].coord.x;
+      c->data[row][1] = m.atoms[i].coord.y;
+      c->data[row][2] = m.atoms[i].coord.z;
+      aidx->data[row] = i+1;
       row++;
     }
     else{
@@ -761,7 +761,7 @@ void getMatrixof_H_Coordinates(MOLECULE m, matrix **c, uivector **aidx)
   }
 }
 /*DEPRECATED*/
-void getMatrixof_Car_Coordinates(MOLECULE m, matrix **c, uivector **aidx)
+void getMatrixof_Car_Coordinates(MOLECULE m, matrix *c, uivector *aidx)
 {
   int row = 0;
   for(int i = 0; i <  m.n_atoms; i++){
@@ -777,10 +777,10 @@ void getMatrixof_Car_Coordinates(MOLECULE m, matrix **c, uivector **aidx)
   row = 0;
   for(int i = 0; i < m.n_atoms; i++){
     if(strcmp(m.atoms[i].type, "C.ar") == 0){
-      (*c)->data[row][0] = m.atoms[i].coord.x;
-      (*c)->data[row][1] = m.atoms[i].coord.y;
-      (*c)->data[row][2] = m.atoms[i].coord.z;
-      (*aidx)->data[row] = i+1;
+      c->data[row][0] = m.atoms[i].coord.x;
+      c->data[row][1] = m.atoms[i].coord.y;
+      c->data[row][2] = m.atoms[i].coord.z;
+      aidx->data[row] = i+1;
       row++;
     }
     else{
@@ -792,8 +792,8 @@ void getMatrixof_Car_Coordinates(MOLECULE m, matrix **c, uivector **aidx)
 
 void getMatrixofAtomTypeChargeScaled(MOLECULE m,
                                      char *atype,
-                                     matrix **c,
-                                     uivector **aidx)
+                                     matrix *c,
+                                     uivector *aidx)
 {
   int row = 0;
   for(int i = 0; i <  m.n_atoms; i++){
@@ -816,10 +816,10 @@ void getMatrixofAtomTypeChargeScaled(MOLECULE m,
    */
   for(int i = 0; i < m.n_atoms; i++){
     if(strcmp(m.atoms[i].type, atype) == 0){
-      (*c)->data[row][0] = (m.atoms[i].coord.x*m.atoms[i].charge*a)/b;
-      (*c)->data[row][1] = (m.atoms[i].coord.y*m.atoms[i].charge*a)/b;
-      (*c)->data[row][2] = (m.atoms[i].coord.z*m.atoms[i].charge*a)/b;
-      (*aidx)->data[row] = i+1;
+      c->data[row][0] = (m.atoms[i].coord.x*m.atoms[i].charge*a)/b;
+      c->data[row][1] = (m.atoms[i].coord.y*m.atoms[i].charge*a)/b;
+      c->data[row][2] = (m.atoms[i].coord.z*m.atoms[i].charge*a)/b;
+      aidx->data[row] = i+1;
       row++;
     }
     else{
@@ -846,11 +846,11 @@ double Align3DShapes(MOLECULE m1, MOLECULE m2)
   initUIVector(&aidx1);
   initUIVector(&aidx2);
 
-  getMatrixof_H_Coordinates(m1, &c1, &aidx1);
-  getMatrixof_H_Coordinates(m2, &c2, &aidx2);
+  getMatrixof_H_Coordinates(m1, c1, aidx1);
+  getMatrixof_H_Coordinates(m2, c2, aidx2);
 
-  get3DAnchorPoints(c1, aidx1, 6, &aid1);
-  get3DAnchorPoints(c2, aidx2, 6, &aid2);
+  get3DAnchorPoints(c1, aidx1, 6, aid1);
+  get3DAnchorPoints(c2, aidx2, 6, aid2);
 
   DelMatrix(&c1);
   DelMatrix(&c2);
@@ -863,11 +863,11 @@ double Align3DShapes(MOLECULE m1, MOLECULE m2)
   initUIVector(&aidx1);
   initUIVector(&aidx2);
 
-  getMatrixof_Car_Coordinates(m1, &c1, &aidx1);
-  getMatrixof_Car_Coordinates(m2, &c2, &aidx2);
+  getMatrixof_Car_Coordinates(m1, c1, aidx1);
+  getMatrixof_Car_Coordinates(m2, c2, aidx2);
 
-  get3DAnchorPoints(c1, aidx1, 4, &aid1);
-  get3DAnchorPoints(c2, aidx2, 4, &aid2);
+  get3DAnchorPoints(c1, aidx1, 4, aid1);
+  get3DAnchorPoints(c2, aidx2, 4, aid2);
 
   DelMatrix(&c1);
   DelMatrix(&c2);
@@ -1013,8 +1013,8 @@ double Align3DOnVDWShapes(MOLECULE m1, MOLECULE m2)
   initUIVector(&aid2);
 
   /*sampling the shape*/
-  get3DAnchorPointsMaxDis(shap1->surf, aidx1, ntpnts, &aid1);
-  get3DAnchorPointsMaxDis(shap2->surf, aidx2, ntpnts, &aid2);
+  get3DAnchorPointsMaxDis(shap1->surf, aidx1, ntpnts, aid1);
+  get3DAnchorPointsMaxDis(shap2->surf, aidx2, ntpnts, aid2);
 
   DelUIVector(&aidx1);
   DelUIVector(&aidx2);
@@ -1046,7 +1046,7 @@ double Align3DOnVDWShapes(MOLECULE m1, MOLECULE m2)
   while(1){
     initMatrix(&R);
     initDVector(&t);
-    rmsd = ICP(A, B, 1e-6, &R, &t, NULL);
+    rmsd = ICP(A, B, 1e-6, R, t, NULL);
     if(fabs(rmsd-last_rmsd) < 1e-6){
       RotoTranslateMolecule(m1, R, t);
       break;
@@ -1125,7 +1125,7 @@ double Align3DPharmacophore(MOLECULE m1, MOLECULE m2, uivector *aid1, uivector *
       }
 
       /* fit A to B so calculate the rotation matrix R and the translation vector t*/
-      RotoTranslation(A_p, B, &R, &t);
+      RotoTranslation(A_p, B, R, t);
 
       /* Now change the coordinates of the pharmacophore 1 using R and t
        * in order to make effective the alignment to the pharmacophore 2*/
@@ -1136,7 +1136,7 @@ double Align3DPharmacophore(MOLECULE m1, MOLECULE m2, uivector *aid1, uivector *
       matrix *A_aligned_T_tmp;
       initMatrix(&A_aligned_T_tmp);
 
-      ComputeCoordinates(A_T, R, t, &A_aligned_T_tmp);
+      ComputeCoordinates(A_T, R, t, A_aligned_T_tmp);
 
       DelMatrix(&A_T);
 
@@ -1146,7 +1146,7 @@ double Align3DPharmacophore(MOLECULE m1, MOLECULE m2, uivector *aid1, uivector *
       if(rmsd < best_rmsd){
          best_rmsd = rmsd;
          MatrixCopy(R, &R_best);
-         DVectorCopy(t, &t_best);
+         DVectorCopy(t, t_best);
          best_it = it;
       }
       DelMatrix(&A_aligned_T_tmp);
@@ -1183,7 +1183,7 @@ double Align3DPharmacophore(MOLECULE m1, MOLECULE m2, uivector *aid1, uivector *
 
   NewMatrix(&A_aligned_T, 3, m1.n_atoms);
 
-  ComputeCoordinates(A_T, R_best, t_best, &A_aligned_T);
+  ComputeCoordinates(A_T, R_best, t_best, A_aligned_T);
 
   DelMatrix(&A_T);
 
@@ -1211,13 +1211,13 @@ double Align3DConformations(MOLECULE m1, MOLECULE m2)
     printf("[Align3DConformations Error]: The number of atoms between conformers differ!\n");
     return -1.;
   }
-  
+
   NewMatrix(&A, m1.n_atoms, 3);
   NewMatrix(&B, m2.n_atoms, 3);
   NewMatrix(&A_best, m1.n_atoms, 3);
 
-  for(int k = 0; k < 1; k++){
-    /* Finding the optimal rotation 
+  for(int k = 0; k < 20; k++){
+    /* Finding the optimal rotation
      * In order to grant to find the right alignment
      * we do max 20 iterations!
      */
@@ -1233,10 +1233,10 @@ double Align3DConformations(MOLECULE m1, MOLECULE m2)
 
     initMatrix(&R);
     initDVector(&t);
-    rmsd = ICP(A, B, 1e-6, &R, &t, NULL);
+    rmsd = ICP(A, B, 1e-6, R, t, NULL);
     if(rmsd < best_rmsd){
       /* We apply the rotation to this rotation and we save as the best */
-      ApplyTransformation(A, R, t, &A_best);
+      ApplyTransformation(A, R, t, A_best);
       best_rmsd = rmsd;
     }
     else{
@@ -1246,13 +1246,13 @@ double Align3DConformations(MOLECULE m1, MOLECULE m2)
     DelMatrix(&R);
     DelDVector(&t);
   }
-  
+
   for(int i = 0; i < m1.n_atoms; i++){
     m1.atoms[i].coord.x = A_best->data[i][0];
     m1.atoms[i].coord.y = A_best->data[i][1];
     m1.atoms[i].coord.z = A_best->data[i][2];
   }
-  
+
   DelMatrix(&A_best);
   DelMatrix(&A);
   DelMatrix(&B);

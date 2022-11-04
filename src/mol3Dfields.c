@@ -55,7 +55,7 @@ void DelVoxel(VOXEL **v)
   free((*v));
 }
 
-void Voxel2Matrix(VOXEL *v, matrix **m)
+void Voxel2Matrix(VOXEL *v, matrix *m)
 {
   size_t i, j, k, c;
   ResizeMatrix(m, v->nx*v->ny*v->nz, 4);
@@ -70,10 +70,10 @@ void Voxel2Matrix(VOXEL *v, matrix **m)
     for(j = 0; j < v->ny; j++){
       z = v->zmin;
       for(k = 0; k < v->nz; k++){
-        (*m)->data[c][0] = x;
-        (*m)->data[c][1] = y;
-        (*m)->data[c][2] = z;
-        (*m)->data[c][3] = v->pnt[i][j][k];
+        m->data[c][0] = x;
+        m->data[c][1] = y;
+        m->data[c][2] = z;
+        m->data[c][3] = v->pnt[i][j][k];
         c++;
         z += dz;
       }
@@ -289,7 +289,7 @@ int HBACheck(char *atomtype){
  * -theta: z angle respect to the xy plane between (0, pi)
  * -phi: angle respect x and y between (0, 2pi)
 */
-void SphereCordaAngleGenerator(size_t nphi, size_t ntheta, matrix **angles)
+void SphereCordaAngleGenerator(size_t nphi, size_t ntheta, matrix *angles)
 {
   double phi, theta, d_phi, d_theta;
   d_phi = _pi_/(double)nphi;
@@ -311,7 +311,7 @@ void SphereCordaAngleGenerator(size_t nphi, size_t ntheta, matrix **angles)
   DelDVector(&row);
 }
 
-void GenEquidistributedPointsInSphere(int npnt, double r, matrix **pnt_in_sphere)
+void GenEquidistributedPointsInSphere(int npnt, double r, matrix *pnt_in_sphere)
 {
   /* Algorith:
      How to generate equidistributed points on the surface of a sphere
@@ -359,7 +359,14 @@ void GenEquidistributedPointsInSphere(int npnt, double r, matrix **pnt_in_sphere
 /*
  * Calculate the interaction fields according the VDW radius sphere
  */
-void FieldCalculator(ForceField ff, MOLECULE *molecule, int formal_charge, size_t npnt, enum RADIUS_TYPE rtype, int probe_id, double pdistance, matrix **field){
+void FieldCalculator(ForceField ff,
+                     MOLECULE *molecule,
+                     int formal_charge,
+                     size_t npnt,
+                     enum RADIUS_TYPE rtype,
+                     int probe_id,
+                     double pdistance,
+                     matrix *field){
   size_t i, j, k;
   double pradius = 0.f;
   srand((unsigned)npnt+molecule->n_atoms+molecule->n_bonds);
@@ -401,7 +408,7 @@ void FieldCalculator(ForceField ff, MOLECULE *molecule, int formal_charge, size_
     */
   for(j = 0; j < molecule->n_atoms; j++){
     initMatrix(&pnts);
-    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, &pnts);
+    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, pnts);
 
     for(i = 0; i < pnts->row; i++){
     /*  Method used with SphereCordaAngleGenerator()
@@ -1506,7 +1513,10 @@ void VoxelGenericPotentialCalculator(MOLECULE *molecule, AtomsProperty *lst,  in
  * and the partial charges of the molecules. The Electrostatic Potential
  * is expressed in kcal/mol
  */
-void SphericalElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_TYPE rtype, matrix **epot){
+void SphericalElectrostaticPotentialCalculator(MOLECULE *molecule,
+                                               int npnt,
+                                               enum RADIUS_TYPE rtype,
+                                               matrix *epot){
   size_t i, j;
   srand((unsigned)npnt+molecule->n_atoms+molecule->n_bonds);
   dvector *row;
@@ -1530,7 +1540,7 @@ void SphericalElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, enu
     */
   for(j = 0; j < molecule->n_atoms; j++){
     initMatrix(&pnts);
-    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, &pnts);
+    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, pnts);
     for(i = 0; i < pnts->row; i++){
     /*  Method used with SphereCordaAngleGenerator()
     for(i = 0; i < angles->row; i++){
@@ -1565,7 +1575,10 @@ void SphericalElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, enu
  * and the UFF VdW parameters.
  * The potential is expressed in kcal/mol
  */
-void SphericalVdWPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_TYPE rtype, matrix **vdwp){
+void SphericalVdWPotentialCalculator(MOLECULE *molecule,
+                                     int npnt,
+                                     enum RADIUS_TYPE rtype,
+                                     matrix *vdwp){
   size_t i, j;
   srand((unsigned)npnt+molecule->n_atoms+molecule->n_bonds);
   dvector *row;
@@ -1589,7 +1602,7 @@ void SphericalVdWPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_T
     */
   for(j = 0; j < molecule->n_atoms; j++){
     initMatrix(&pnts);
-    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, &pnts);
+    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, pnts);
     for(i = 0; i < pnts->row; i++){
     /*  Method used with SphereCordaAngleGenerator()
     for(i = 0; i < angles->row; i++){
@@ -1625,7 +1638,7 @@ void SphericalVdWPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_T
  * The potential is expressed in pauling relative electronegativity scale
  * It seems to be correlated with the molecular shape...
  */
-void SphericalENegPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_TYPE rtype, matrix **enegp){
+void SphericalENegPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_TYPE rtype, matrix *enegp){
   size_t i, j;
   srand((unsigned)npnt+molecule->n_atoms+molecule->n_bonds);
   dvector *row;
@@ -1649,7 +1662,7 @@ void SphericalENegPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_
     */
   for(j = 0; j < molecule->n_atoms; j++){
     initMatrix(&pnts);
-    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, &pnts);
+    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, pnts);
     for(i = 0; i < pnts->row; i++){
     /*  Method used with SphereCordaAngleGenerator()
     for(i = 0; i < angles->row; i++){
@@ -1684,7 +1697,12 @@ void SphericalENegPotentialCalculator(MOLECULE *molecule, int npnt, enum RADIUS_
  * and epsilon sigma external properties
  * The potential is expressed in kcal/mol
  */
-void SphericalLJPotentialCalculator(MOLECULE *molecule, AtomsProperty *epsilon, AtomsProperty *sigma, int npnt, enum RADIUS_TYPE rtype, matrix **ljpot){
+void SphericalLJPotentialCalculator(MOLECULE *molecule,
+                                    AtomsProperty *epsilon,
+                                    AtomsProperty *sigma,
+                                    int npnt,
+                                    enum RADIUS_TYPE rtype,
+                                    matrix *ljpot){
   size_t i, j;
   srand((unsigned)npnt+molecule->n_atoms+molecule->n_bonds);
   dvector *row;
@@ -1708,7 +1726,7 @@ void SphericalLJPotentialCalculator(MOLECULE *molecule, AtomsProperty *epsilon, 
     */
   for(j = 0; j < molecule->n_atoms; j++){
     initMatrix(&pnts);
-    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, &pnts);
+    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, pnts);
     for(i = 0; i < pnts->row; i++){
     /*  Method used with SphereCordaAngleGenerator()
     for(i = 0; i < angles->row; i++){
@@ -1744,7 +1762,11 @@ void SphericalLJPotentialCalculator(MOLECULE *molecule, AtomsProperty *epsilon, 
  * The potential is expressed in pauling relative electronegativity scale
  * It seems to be correlated with the molecular shape...
  */
-void SphericalGenericPotentialCalculator(MOLECULE *molecule, AtomsProperty *lst,  int npnt, enum RADIUS_TYPE rtype, matrix **gpot){
+void SphericalGenericPotentialCalculator(MOLECULE *molecule,
+                                         AtomsProperty *lst,
+                                         int npnt,
+                                         enum RADIUS_TYPE rtype,
+                                         matrix *gpot){
   size_t i, j;
   srand((unsigned)npnt+molecule->n_atoms+molecule->n_bonds);
   dvector *row;
@@ -1768,7 +1790,7 @@ void SphericalGenericPotentialCalculator(MOLECULE *molecule, AtomsProperty *lst,
     */
   for(j = 0; j < molecule->n_atoms; j++){
     initMatrix(&pnts);
-    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, &pnts);
+    GenEquidistributedPointsInSphere(npnt, molecule->atoms[j].radius, pnts);
     for(i = 0; i < pnts->row; i++){
     /*  Method used with SphereCordaAngleGenerator()
     for(i = 0; i < angles->row; i++){

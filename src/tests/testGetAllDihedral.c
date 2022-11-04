@@ -30,7 +30,7 @@ int main(int argc, char **argv)
                            j,
                            i,
                            &dhangle,
-                           &dhids);
+                           dhids);
        if(FLOAT_EQ(dhangle, -9999.f, 1e-1) != 1){
          printf("ids: %zu %zu %zu %zu angle: %f\n", dhids->data[0],
                                                     dhids->data[1],

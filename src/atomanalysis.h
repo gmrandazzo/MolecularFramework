@@ -28,7 +28,7 @@ void AtomTypeAnalyzer(MOLECULE *molecule);
  * 1 means there is a connection
  * 0 means there is no connection
  */
-void AdjMatGen(MOLECULE *molecule, matrix **adjmx);
+void AdjMatGen(MOLECULE *molecule, matrix *adjmx);
 
 
 /*
@@ -36,14 +36,14 @@ void AdjMatGen(MOLECULE *molecule, matrix **adjmx);
  * If there is a bond between two atoms the value is > 0 and
  * represent the bond length.
  */
-void BondLenghtAdjMatGen(MOLECULE *molecule, matrix **adjmx);
+void BondLenghtAdjMatGen(MOLECULE *molecule, matrix *adjmx);
 
 /*
  * Generate the coloured  adjacence matrix
  * Four kind of bond type are possible
  * 1, 2, 3, ar
  */
-void BondColorAdjMatGen(MOLECULE *molecule, matrix **adjmx);
+void BondColorAdjMatGen(MOLECULE *molecule, matrix *adjmx);
 
 /*
 */

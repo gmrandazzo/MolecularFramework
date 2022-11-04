@@ -109,11 +109,11 @@ void getShapePoints(MOLECULE molecule, SHAPEPNT **pnt, enum RADIUS_TYPE rtype)
         for(l = 0; l < molecule.n_atoms; l++){
           double dcatom = GetDistance(cc->data[0], cc->data[1], cc->data[2], molecule.atoms[l].coord.x, molecule.atoms[l].coord.y, molecule.atoms[l].coord.z);
           if(FLOAT_EQ(dcatom, molecule.atoms[l].radius, 1e-2)){
-            MatrixAppendRow(&(*pnt)->surf, cc);
+            MatrixAppendRow((*pnt)->surf, cc);
           }
 
           if(dcatom < molecule.atoms[l].radius || FLOAT_EQ(dcatom, molecule.atoms[l].radius, 1e-2)){
-             MatrixAppendRow(&(*pnt)->vol, cc);
+             MatrixAppendRow((*pnt)->vol, cc);
             break;
           }
           else{

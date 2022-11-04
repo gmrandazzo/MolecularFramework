@@ -1,4 +1,4 @@
-/* 
+/*
  * (c) 2012-2019 gmrandazzo@gmail.com
  * This file is part of MolecularFramework.
  * You can use,modify, and distribute it under
@@ -394,18 +394,18 @@ void AtomAnalyzer(MOLECULE *molecule, size_t fp_bond_max)
   atomToFingerPrint(molecule, fp_bond_max);
 }
 
-void AdjMatGen(MOLECULE *molecule, matrix **adjmx)
+void AdjMatGen(MOLECULE *molecule, matrix *adjmx)
 {
   ResizeMatrix(adjmx, molecule->n_atoms, molecule->n_atoms);
   int i, j;
   for(i = 0; i < molecule->n_atoms; i++){
-    (*adjmx)->data[i][i] = 0;
+    adjmx->data[i][i] = 0;
     for(j = 0; j < molecule->n_bonds; j++){
      if(molecule->bonds[j].origin_atom_id == i){
-       (*adjmx)->data[i][molecule->bonds[j].target_atom_id] = 1;
+       adjmx->data[i][molecule->bonds[j].target_atom_id] = 1;
      }
      else if(molecule->bonds[j].target_atom_id == i){
-       (*adjmx)->data[i][molecule->bonds[j].origin_atom_id] = 1;
+       adjmx->data[i][molecule->bonds[j].origin_atom_id] = 1;
      }
      else
       continue;
@@ -414,20 +414,20 @@ void AdjMatGen(MOLECULE *molecule, matrix **adjmx)
 }
 
 
-void BondLenghtAdjMatGen(MOLECULE *molecule, matrix **adjmx)
+void BondLenghtAdjMatGen(MOLECULE *molecule, matrix *adjmx)
 {
   ResizeMatrix(adjmx, molecule->n_atoms, molecule->n_atoms);
   int i, j;
   for(i = 0; i < molecule->n_atoms; i++){
-    (*adjmx)->data[i][i] = 0;
+    adjmx->data[i][i] = 0;
     for(j = 0; j < molecule->n_bonds; j++){
       if(molecule->bonds[j].origin_atom_id == i){
         int tid = molecule->bonds[j].target_atom_id;
-        (*adjmx)->data[i][molecule->bonds[j].target_atom_id] = GetDistance_(molecule->atoms[i].coord, molecule->atoms[tid].coord);
+        adjmx->data[i][molecule->bonds[j].target_atom_id] = GetDistance_(molecule->atoms[i].coord, molecule->atoms[tid].coord);
       }
       else if(molecule->bonds[j].target_atom_id == i){
         int oid = molecule->bonds[j].target_atom_id;
-        (*adjmx)->data[i][molecule->bonds[j].origin_atom_id] = GetDistance_(molecule->atoms[i].coord, molecule->atoms[oid].coord);
+        adjmx->data[i][molecule->bonds[j].origin_atom_id] = GetDistance_(molecule->atoms[i].coord, molecule->atoms[oid].coord);
       }
       else{
         continue;
@@ -436,12 +436,12 @@ void BondLenghtAdjMatGen(MOLECULE *molecule, matrix **adjmx)
   }
 }
 
-void BondColorAdjMatGen(MOLECULE *molecule, matrix **adjmx)
+void BondColorAdjMatGen(MOLECULE *molecule, matrix *adjmx)
 {
   ResizeMatrix(adjmx, molecule->n_atoms, molecule->n_atoms);
   int i, j;
   for(i = 0; i < molecule->n_atoms; i++){
-    (*adjmx)->data[i][i] = 0;
+    adjmx->data[i][i] = 0;
     for(j = 0; j < molecule->n_bonds; j++){
 
       double bond_color = 0.f;
@@ -462,10 +462,10 @@ void BondColorAdjMatGen(MOLECULE *molecule, matrix **adjmx)
       }
 
       if(molecule->bonds[j].origin_atom_id == i){
-        (*adjmx)->data[i][molecule->bonds[j].target_atom_id] = bond_color;
+        adjmx->data[i][molecule->bonds[j].target_atom_id] = bond_color;
       }
       else if(molecule->bonds[j].target_atom_id == i){
-        (*adjmx)->data[i][molecule->bonds[j].origin_atom_id] = bond_color;
+        adjmx->data[i][molecule->bonds[j].origin_atom_id] = bond_color;
       }
       else{
         continue;
@@ -541,14 +541,14 @@ void univoque_ar_rings(MOLECULE *molecule, RINGS **urings, size_t *n_urings)
         int r = ring_contain_ring(rings[i].atoms, rings[i].size, rings[j].atoms, rings[j].size);
         if(r == 0){ //r1 in r2 and r2 > r1! get r2 and skip r1!
           if(isaromaticring(molecule, j) == 1){ // is aromatic ring
-            UIVectorAppend(&skip_id, i);
+            UIVectorAppend(skip_id, i);
           }
           else{
             continue;
           }
         }
         else if(r == 1){ // r2 in r1 and r1 < r2! get r1 and skip r2!
-          //UIVectorAppend(&skip_id, j);
+          //UIVectorAppend(skip_id, j);
           continue;
         }
         else{
@@ -558,7 +558,7 @@ void univoque_ar_rings(MOLECULE *molecule, RINGS **urings, size_t *n_urings)
       }
     }
     else{
-      //UIVectorAppend(&skip_id, i);
+      //UIVectorAppend(skip_id, i);
       continue;
     }
   }
@@ -927,8 +927,8 @@ void Kekulize(MOLECULE *molecule)
             UIVectorHasValue(db_id, ring_id->data[n_indx]) == 1
             && prev_db_id != ring_id->data[j]){
             //this couple of atom could have a double bond
-            UIVectorAppend(&db_id, ring_id->data[j]);
-            UIVectorAppend(&db_id, ring_id->data[n_indx]);
+            UIVectorAppend(db_id, ring_id->data[j]);
+            UIVectorAppend(db_id, ring_id->data[n_indx]);
             tmp_bonds->data[j]+=1;
             tmp_bonds->data[n_indx]+=1;
             prev_db_id = ring_id->data[n_indx];
@@ -979,7 +979,7 @@ void Kekulize(MOLECULE *molecule)
 
         if(final_db_id->size == 0){
           for(j = 0; j < db_id->size; j++)
-            UIVectorAppend(&final_db_id, db_id->data[j]);
+            UIVectorAppend(final_db_id, db_id->data[j]);
         }
         else{
           if(db_id->size < final_db_id->size){
@@ -1066,8 +1066,8 @@ void Kekulize_(MOLECULE *molecule){
   initUIVector(&d);
   for(i = 0; i < molecule->n_atoms; i++){
     if(molecule->atoms[i].ainfo.aromatic == 1){
-      UIVectorAppend(&a, i);
-      UIVectorAppend(&d, 0);
+      UIVectorAppend(a, i);
+      UIVectorAppend(d, 0);
     }
     else{
       continue;

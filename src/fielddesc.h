@@ -16,7 +16,7 @@
 
 
 
-void SphericalFieldAnalysis(MOLECULE molecule, matrix *field, double radius_step, matrix **spectra);
+void SphericalFieldAnalysis(MOLECULE molecule, matrix *field, double radius_step, matrix *spectra);
 
 /* Single field descriptors */
 double AvgFieldValue(matrix *field, double min, double max);

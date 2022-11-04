@@ -45,10 +45,17 @@ int main(int argc, char **argv)
   for(int i = 0; i < 2; i++){
     initMatrix(&field);
     /*FieldCalculator(ForceField ff, MOLECULE molecule, size_t npnt, enum RADIUS_TYPE rtype, int probe_id, matrix **field);*/
-    FieldCalculator(ff, &molecule, formal_charge, 500, vanderwaals, probe_id[i], 0.f, &field);
+    FieldCalculator(ff,
+                    &molecule,
+                    formal_charge,
+                    500,
+                    vanderwaals,
+                    probe_id[i],
+                    0.f,
+                    field);
     matrix *spectra;
     initMatrix(&spectra);
-    SphericalFieldAnalysis(molecule, field, 0.025, &spectra);
+    SphericalFieldAnalysis(molecule, field, 0.025, spectra);
     /*Normalize between 0 and 1*/
     PrintMatrix(spectra);
     DelMatrix(&spectra);

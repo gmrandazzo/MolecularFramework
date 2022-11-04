@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     RandomConformationRotation(&molecule);
     matrix *field;
     initMatrix(&field);
-    SphericalLJPotentialCalculator(&molecule, epsilon, sigma, npnt, vanderwaals, &field);
+    SphericalLJPotentialCalculator(&molecule, epsilon, sigma, npnt, vanderwaals, field);
     //Calculate Histograms
     x = min;
     for(int j = 0; j < n_esteps; j++){

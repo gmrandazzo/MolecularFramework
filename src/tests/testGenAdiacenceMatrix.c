@@ -23,7 +23,7 @@ int main(int argc, char **argv)
   NewMOL2Molecule(&molecule, argv[1]);
   matrix *adjmx;
   initMatrix(&adjmx);
-  AdjMatGen(&molecule, &adjmx);
+  AdjMatGen(&molecule, adjmx);
   PrintMatrix(adjmx);
   DelMatrix(&adjmx);
   DelMolecule(&molecule);
