@@ -1,9 +1,15 @@
 # MolecularFramework
 
-MolecularFramework is a c/c++ cheminformatic library to develop
-new solution for drug discovery.
+MolecularFramework is a c/c++ cheminformatic 3D modeling library to
+speed up drug discovery.
+
+
+| Pharmacophore Superposition | VDW Shape Superposition |
+| --------------------------- |:-----------------------:|
+|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_Pharmacophore_Aligment.gif)|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_VDWShape_Aligmnent.gif)|
 
 ![ScreenShot](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/MolecularFramework.png)
+
 
 Changelog
 =========
@@ -14,9 +20,7 @@ Changelog
 License
 =======
 
-
 MolecularFramework is distributed under GPLV3 license in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
 
 To know more in details how the license work please read the file "LICENSE" or
 go to "http://www.gnu.org/licenses/lgpl-3.0.html"

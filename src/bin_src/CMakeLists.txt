@@ -3,9 +3,10 @@ set(GEN3DDESC_SRC gen3Ddesc.c)
 set(FFGEN_SRC ffgen.c)
 set(METDBGEN_SRC metdbgen.c)
 set(MFIELDSGEN_SRC mfieldgen.c)
-set(GENMOL2ADJMX_SRC Genmol2adjmx.c)
+set(GENMOL2ADJMX_SRC gen_mol2_adjmx.c)
 set(GENMOLEPOT_SRC molepot.c)
-set(PROTLIGGENMOLEPOT_SRC protligandmolepot.c)
+set(COMPARELEPOT_SRC compare_epot.c)
+set(PROTLIGGENMOLEPOT_SRC prot_ligand_mol_epot.c)
 set(GENMOLUFFVDWPOT_SRC moluffvdwpot.c)
 set(GENMOLENEGPOT_SRC molenegpot.c)
 set(GENMOLGPOT_SRC molgpot.c)
@@ -28,6 +29,10 @@ set(MOL23DTWOAWEPFP_SRC mol23Dtwoatomwepotfp.c)
 set(MOL2DESCGEN_SRC mol2GenDescriptors.c)
 set(MOL23DTWOATWFP_SRC mol23Dtwoatomtypewpotfp.c)
 
+set(ALIGN3DONVDWSHAPES_SRC align_3d_on_vdw_shapes.c)
+set(ALIGN3DCONFORMERS_SRC align_3d_conformers.c)
+set(ALIGN3DPHARMACOPHORE_SRC align_3d_pharmacophore.c)
+
 
 add_executable(metdbgen ${METDBGEN_SRC})
 target_link_libraries(metdbgen libmoldesc)
@@ -49,6 +54,9 @@ target_link_libraries(GenMol2Adjmx libmoldesc)
 
 add_executable(GenMolEPot ${GENMOLEPOT_SRC})
 target_link_libraries(GenMolEPot libmoldesc)
+
+add_executable(CmpEPot ${COMPARELEPOT_SRC})
+target_link_libraries(CmpEPot libmoldesc)
 
 add_executable(GenProteinLigandMolEPot ${PROTLIGGENMOLEPOT_SRC})
 target_link_libraries(GenProteinLigandMolEPot libmoldesc)
@@ -115,3 +123,12 @@ target_link_libraries(Mol2DescriptorGenerator libmoldesc)
 
 add_executable(Mol23DTwoAtomWFP ${MOL23DTWOATWFP_SRC})
 target_link_libraries(Mol23DTwoAtomWFP libmoldesc)
+
+add_executable(Align3DMolsOnVDWShapes ${ALIGN3DONVDWSHAPES_SRC})
+target_link_libraries(Align3DMolsOnVDWShapes libmoldesc)
+
+add_executable(Align3DConformers ${ALIGN3DCONFORMERS_SRC})
+target_link_libraries(Align3DConformers libmoldesc)
+
+add_executable(Align3DPharmacophore ${ALIGN3DPHARMACOPHORE_SRC})
+target_link_libraries(Align3DPharmacophore libmoldesc)

@@ -24,10 +24,9 @@ int main(int argc, char **argv)
   MOLECULE molecule;
   NewMOL2Molecule(&molecule, argv[1]);
   AtomAnalyzer(&molecule, 1);
-  //PrintMolecule(molecule);
+  PrintMolecule(molecule);
   PrintMoleculeRings(molecule);
   printf("Formal Charge %d\n", GetFormalCharge(molecule));
-  //SaveMol2Molecule(molecule, "suca.mol2");
   DelMolecule(&molecule);
   return 0;
 }

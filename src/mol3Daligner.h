@@ -41,7 +41,25 @@ void TranslateConformation(MOLECULE m, double cx, double cy, double cz);
  */
 void RandomConformationRotation(MOLECULE *m);
 
+/*
+ * RotoTranslateMolecule: giving a rotation 3x3 matrix and a translation vector 1x3
+ * this method will rototranslate your molecule.
+ */
+void RotoTranslateMolecule(MOLECULE m, matrix *R, dvector *t);
 
+/*
+ * Random rotation in x, y, z of a matrix of coordinates
+ * and storage of rotation/translation matrix into R and t
+ */
+void Random3DMatrixRotation(matrix *A);
+void Random3DMatrixRotationEulerMethod(matrix *A, matrix *R, dvector *t);
+
+
+
+void ApplyRotation(matrix *pts,
+                   matrix *R,
+                   dvector *t,
+                   matrix *pts_transformed);
 /*
  * Implementation of the Iterative Closest Point Algorithm
  * from doi:10.1109/34.121791
@@ -71,20 +89,12 @@ double Align3DConformations(MOLECULE m1, MOLECULE m2);
 double Align3DPharmacophore(MOLECULE m1, MOLECULE m2, uivector *aid1, uivector *aid2);
 
 
-double Align3DShapesNew(MOLECULE m1, MOLECULE m2);
-/*
- * Align two different molecules (molecule m1 to molecule m2) according
- * to most distant barycenter atoms
- * The function return the alignment rmsd.
- */
-double Align3DShapes(MOLECULE m1, MOLECULE m2);
-
 /*
  * Align two different molecules (molecule m1 to molecule m2) according
  * to their shape calculated using VDW volumes
  * The function return the alignment rmsd.
  */
-double Align3DOnVDWShapes(MOLECULE m1, MOLECULE m2);
+double Align3DOnVDWShapes(MOLECULE m1, MOLECULE m2, int n_sampling_points);
 
 
 #endif
