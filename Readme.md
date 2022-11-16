@@ -4,9 +4,13 @@ MolecularFramework is a c/c++ cheminformatic 3D modeling library to
 speed up drug discovery.
 
 
-| Conformer Aligment || Pharmacophore Superposition | VDW Shape Superposition |
-| ------------------ || --------------------------- |:-----------------------:|
-|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_Conformer_Aligment.gif)|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_Pharmacophore_Aligment.gif)|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_VDWShape_Aligmnent.gif)|
+| Conformer Aligment |
+| ------------------ |
+|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_Conformer_Aligment.gif)|
+
+| Pharmacophore Superposition | VDW Shape Superposition |
+| --------------------------- |:-----------------------:|
+|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_Pharmacophore_Aligment.gif)|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_VDWShape_Aligmnent.gif)|
 
 
 
