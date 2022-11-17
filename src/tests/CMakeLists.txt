@@ -81,7 +81,7 @@ add_test(NAME testDescriptors COMMAND testDescriptors ${CMAKE_SOURCE_DIR}/src/te
 
 add_executable(testGetShapePoints ${TestGetShapePoints_SRC})
 target_link_libraries(testGetShapePoints libmoldesc)
-add_test(NAME testGetShapePoints COMMAND testGetShapePoints ${CMAKE_SOURCE_DIR}/src/tests/Data/2ai9.mol2 2ai9.shapepnt.mol2)
+add_test(NAME testGetShapePoints COMMAND testGetShapePoints ${CMAKE_SOURCE_DIR}/src/tests/Data/Triflumizole.mol2 Triflumizole.shapepnt.mol2)
 
 add_executable(testGetEMWMWfromMolecularFormula ${TestGetEMWMWfromMolecularFormula_SRC})
 target_link_libraries(testGetEMWMWfromMolecularFormula libmoldesc)
@@ -98,7 +98,7 @@ add_test(NAME testAlign3DPharmacophore COMMAND testAlign3DPharmacophore ${CMAKE_
 
 add_executable(testAlign3DVDWShapes ${TestAlign3DVDVShapes_SRC})
 target_link_libraries(testAlign3DVDWShapes libmoldesc)
-add_test(NAME testAlign3DVDWShapes COMMAND testAlign3DVDWShapes ${CMAKE_SOURCE_DIR}/src/tests/Data/TPKI-107_A.mol2.mol2 ${CMAKE_SOURCE_DIR}/src/tests/Data/TPKI-107_B.mol2)
+add_test(NAME testAlign3DVDWShapes COMMAND testAlign3DVDWShapes ${CMAKE_SOURCE_DIR}/src/tests/Data/TPKI-107_A.mol2 ${CMAKE_SOURCE_DIR}/src/tests/Data/TPKI-107_B.mol2)
 
 add_executable(testRMSDConformations ${TestConfRMSD_SRC})
 target_link_libraries(testRMSDConformations libmoldesc)

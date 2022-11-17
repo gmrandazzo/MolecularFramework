@@ -61,7 +61,8 @@ void copystr(char *src, char *dst){
   int j;
   int pos = 0;
   for (j = 0; j < strlen(src); j++) {
-    pos += sprintf(&dst[pos], "%c", src[j]);
+    pos += snprintf(&dst[pos], sizeof(1) , "%c", src[j]);
+    //pos += sprintf(&dst[pos], "%c", src[j]);
   }
 }
 
