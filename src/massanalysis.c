@@ -162,7 +162,8 @@ void GetMolecularFormula(MOLECULE molecule, char** mformula)
 
   if(nn[0] > 0){
     strcpy((*mformula), aa[0]);
-    sprintf(int2char, "%d", nn[0]); /*conversion integer to char */
+    //sprintf(int2char, "%d", nn[0]); /*conversion integer to char */
+    snprintf(int2char, sizeof(int2char), "%d", nn[0]);
     strcat((*mformula), int2char); /* appending the char */
   }
   else{
@@ -173,7 +174,8 @@ void GetMolecularFormula(MOLECULE molecule, char** mformula)
     if(nn[i] > 0){
       strcat((*mformula), aa[i]);
       if(nn[i] > 1){
-        sprintf(int2char, "%d", nn[i]); /*conversion integer to char */
+        //sprintf(int2char, "%d", nn[i]); /*conversion integer to char */
+        snprintf(int2char, sizeof(int2char), "%d", nn[i]);
         strcat((*mformula), int2char); /* appending the char */
       }
     }

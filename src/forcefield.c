@@ -242,10 +242,12 @@ void FFParamsAssigner(MOLECULE molecule, ForceField *ffield)
 
       ffield->params[ffield->size-1].hb_Umoment = u;
       ffield->params[ffield->size-1].hb_Hcharge = h_charge;
-      char buf[21];
-      sprintf(buf, "%lu", i+1);
+      int length = snprintf(NULL, 0, "%zu", i+1);
+      char *buf = malloc(length+1);
+      snprintf(buf, length+1, "%zu", i+1);
       //ffield->params[ffield->size-1].notes = strdup(molecule.molname);
       ffield->params[ffield->size-1].notes = concat(3, molecule.molname, "_atom_id:", buf);
+      free(buf);
     }
   }
 

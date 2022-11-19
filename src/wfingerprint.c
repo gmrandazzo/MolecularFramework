@@ -231,20 +231,23 @@ void GetAtomFrag(MOLECULE molecule, int aid, ATOMFRAG *afrag)
   AtomFragIds(molecule, aid, type, maxtypesize);
   int pos = 0;
   for (j = 0; j < maxtypesize; j++) {
-    pos += sprintf(&afrag->str[pos], "%d", type[j]);
+    //pos += sprintf(&afrag->str[pos], "%d", type[j]);
+    pos += snprintf(&afrag->str[pos], sizeof(type[j]), "%d", type[j]);
   }
 
   for(i = 0; i < molecule.n_bonds; i++){
     if(molecule.bonds[i].origin_atom_id == aid){
       AtomFragIds(molecule, molecule.bonds[i].target_atom_id, type, maxtypesize);
       for (j = 0; j < maxtypesize; j++) {
-        pos += sprintf(&afrag->str[pos], "%d", type[j]);
+        //pos += sprintf(&afrag->str[pos], "%d", type[j]);
+        pos += snprintf(&afrag->str[pos], sizeof(type[j]), "%d", type[j]);
       }
     }
     else if (molecule.bonds[i].target_atom_id == aid){
       AtomFragIds(molecule, molecule.bonds[i].origin_atom_id, type, maxtypesize);
       for (j = 0; j < maxtypesize; j++) {
-        pos += sprintf(&afrag->str[pos], "%d", type[j]);
+        //pos += sprintf(&afrag->str[pos], "%d", type[j]);
+        pos += snprintf(&afrag->str[pos], sizeof(type[j]), "%d", type[j]);
       }
     }
     else{
