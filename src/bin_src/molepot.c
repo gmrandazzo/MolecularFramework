@@ -31,7 +31,16 @@ int main(int argc, char **argv)
   VoxelElectrostaticPotentialCalculator(&molecule, grid_resolution, grid_size, vanderwaals, &field);
   printf("Save Electrostatic Potential ...\n");
   SaveDXField(field, argv[4]);
-
+  /* for CPCA
+  for(int k = 0; k < field->nz; k++){
+    printf("Block %d\n", k);
+    for(int i = 0; i < field->nx; i++){
+      for(int j = 0; j < field->ny-1; j++){
+        printf("%f,", field->pnt[i][j][k]);
+      }
+      printf("%f\n", field->pnt[i][field->ny-1][k]);
+    }
+  }*/
   DelVoxel(&field);
   DelMolecule(&molecule);
   return 0;

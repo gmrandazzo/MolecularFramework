@@ -943,6 +943,41 @@ double ElectrostaticPotential(MOLECULE molecule, double px, double py, double pz
   }
 }
 
+
+double InteractionPotential(MOLECULE molecule, double charge, double px, double py, double pz)
+{
+  /*
+   * E = kq/r
+   * where k is the Coulomb constant
+   * EPot = Sum E of each atom.
+   */
+  int i;
+  double el_pot = 0.f;
+
+  /*If the point is not compenetrating any atoms*/
+  if(PointIsCompenetrating(molecule, px, py, pz) == 0){
+    for(i = 0; i < molecule.n_atoms; i++){
+      /* we should add the atom probe radius to simulate the sphere contact*/
+      double dp_atom = GetDistance(px, py, pz,
+                                   molecule.atoms[i].coord.x,
+                                   molecule.atoms[i].coord.y,
+                                   molecule.atoms[i].coord.z);
+      dp_atom *= 1E-10; /*Convert the distance from angstrom to meter*/
+      /* calculate the potential in Joules */
+      // el_pot += (au2C(charge)*au2C(molecule.atoms[i].charge))/dp_atom;
+      el_pot += (au2C(charge)*au2C(molecule.atoms[i].charge))/(4*_pi_*epsilon0_C_J_m*dp_atom); /* Joule */
+    }
+    /* Conversion from J to kcal/mol dividing the value for
+    * 4184 J / 6.022E23 mol (avogadro constant)
+    */
+    el_pot /= 6.947857854533377e-21;
+    return el_pot;
+  }
+  else{
+    return 0.f;
+  }
+}
+
 void VoxelElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, int voxel_size, enum RADIUS_TYPE rtype, VOXEL **epot)
 {
   int i, j, k;
@@ -1004,6 +1039,77 @@ void VoxelElectrostaticPotentialCalculator(MOLECULE *molecule, int npnt, int vox
       for(k = 0; k < (*epot)->nz; k++){
         z = zmin + k*dz;
         (*epot)->pnt[i][j][k] = ElectrostaticPotential((*molecule), x, y, z);
+      }
+    }
+  }
+}
+
+void VoxelElectrostaticPotentialInteractionCalculator(MOLECULE *molecule,
+                                                      double charge,
+                                                      int npnt,
+                                                      int voxel_size,
+                                                      enum RADIUS_TYPE rtype,
+                                                      VOXEL **epot)
+{
+  int i, j, k;
+  double  xmin, xmax, ymin, ymax, zmin, zmax;
+  double x, y, z, dx, dy, dz;
+
+  /*AssignParams(molecule, ff, rtype, formal_charge);*/
+  //printf("Sum of charges: %.8f\n", GetTotalCharge((*molecule)));
+
+  GetMolBox((*molecule), (double)voxel_size, &xmin, &xmax, &ymin, &ymax, &zmin, &zmax);
+
+  /*
+  double ang2au = 1.0 / 0.5291772083; //0.5291772083 is the bohr radius
+  xmin *= ang2au;
+  xmax *= ang2au;
+  ymin *= ang2au;
+  ymax *= ang2au;
+  zmin *= ang2au;
+  zmax *= ang2au;*/
+
+  //printf("xmin %f xmax %f ymin %f ymax %f zmin %f zmax %f\n", xmin, xmax, ymin, ymax, zmin, zmax);
+
+  /*Create Voxel*/
+  dx = (xmax-xmin)/(double)npnt;
+  dy = (ymax-ymin)/(double)npnt;
+  dz = (zmax-zmin)/(double)npnt;
+
+  NewVoxel(epot, npnt, npnt, npnt);
+  (*epot)->xmin = xmin;
+  (*epot)->ymin = ymin;
+  (*epot)->zmin = zmin;
+  (*epot)->xmax = xmax;
+  (*epot)->ymax = ymax;
+  (*epot)->zmax = zmax;
+
+  /* set the radius type */
+  for(i = 0; i < molecule->n_atoms; i++){
+    if(rtype == vanderwaals){
+      molecule->atoms[i].radius = getVanDerWaalsRadiifromAtomName(molecule->atoms[i].asymbl);
+    }
+    else{
+      molecule->atoms[i].radius = getCovRadiusfromAtomName(molecule->atoms[i].asymbl);
+    }
+  }
+
+  /* Calculate the field in each point of the voxel */
+
+  dx = (xmax-xmin)/((*epot)->nx-1);
+  dy = (ymax-ymin)/((*epot)->ny-1);
+  dz = (zmax-zmin)/((*epot)->nz-1);
+
+  /* create voxel point using an equally-spaced numbers algoritm
+   * division first: start + i*(stop-start)/(num-1)
+   */
+  for(i = 0; i < (*epot)->nx; i++){
+    x =  xmin + i*dx;
+    for(j = 0; j < (*epot)->ny; j++){
+      y = ymin + j*dy;
+      for(k = 0; k < (*epot)->nz; k++){
+        z = zmin + k*dz;
+        (*epot)->pnt[i][j][k] = InteractionPotential((*molecule), charge, x, y, z);
       }
     }
   }
