@@ -1,5 +1,5 @@
+cmake_minimum_required(VERSION 3.18)
 project(MolecularFramework C CXX)
-cmake_minimum_required(VERSION 2.8)
 set(AUTHOR "Giuseppe Marco Randazzo")
 set(VERSION "0.1.0")
 
@@ -29,8 +29,8 @@ else(NOT WIN32)
   if(cmake_build_type_tolower STREQUAL "debug")
     set(CMAKE_BUILD_TYPE "Debug")
     #set(CMAKE_C_FLAGS "-O0 -pedantic -Werror -g -DDEBUG")
-    set(CMAKE_C_FLAGS "-O0  -Werror -g -fsanitize=address")
-    set(CMAKE_CXX_FLAGS "-O0  -Werror -g -fsanitize=address")
+    set(CMAKE_C_FLAGS "-O0  -Werror -g -fsanitize=address -fprofile-arcs -ftest-coverage ")
+    set(CMAKE_CXX_FLAGS "-O0  -Werror -g -fsanitize=address -fprofile-arcs -ftest-coverage")
     set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")
   else()
     set(CMAKE_BUILD_TYPE "Release")
@@ -52,6 +52,8 @@ link_directories("/usr/lib" "/usr/local/lib" ${LIBSCIENTIFIC_LIB_DIR})
 include_directories("/usr/lib" "/usr/local/include" ${LIBSCIENTIFIC_INCLUDE_DIR})
 
 #include_directories(${RDKIT_INCLUDE_DIR})
+
+INCLUDE(Dart)
 
 add_subdirectory(src)
 

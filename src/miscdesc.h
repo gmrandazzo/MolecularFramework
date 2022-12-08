@@ -174,4 +174,6 @@ int GetFormalCharge(MOLECULE molecule);
 
 int GetNetCharge(MOLECULE molecule);
 
+double GetTotalPartialCharge(MOLECULE molecule);
+
 #endif

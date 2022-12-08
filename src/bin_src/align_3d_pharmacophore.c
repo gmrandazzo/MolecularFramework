@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 {
   if(argc == 1){
     printf(" Align a 3D molecule A to a molecule B\n");
-    printf("\nUsage %s align_A.mol2 in_B.mol2 [map file A->B]\n\n", argv[0]);
+    printf("\nUsage %s align_A.mol2 in_B.mol2 [map file A<TAB>B]\n\n", argv[0]);
     return -1;
   }
 

@@ -23,8 +23,9 @@ int main(int argc, char **argv)
   MOLECULE molecule;
   NewMOL2Molecule(&molecule, argv[1]);
   AtomAnalyzer(&molecule, 1);
+  printf("%s %f\n", molecule.molname, GetTotalPartialCharge(molecule));
   //printf("Molecule: %s Charge: %d\n", molecule.molname, GetFormalCharge(molecule));
-  printf("Molecule: %s Charge: %d\n", molecule.molname, GetNetCharge(molecule));
+  //printf("Molecule: %s Charge: %d\n", molecule.molname, GetNetCharge(molecule));
   DelMolecule(&molecule);
   return 0;
 }

@@ -611,11 +611,39 @@ double ICP(matrix *src_pts_,
       if(src_mol != NULL){
         char buf[24];
         snprintf(buf, 24, "tmp_%zu_mol_aligned.mol2", k);
-        for(int i = 0; i < (*src_mol).n_atoms; i++){
-          (*src_mol).atoms[i].coord.x = current_pts->data[i][0];
-          (*src_mol).atoms[i].coord.y = current_pts->data[i][1];
-          (*src_mol).atoms[i].coord.z = current_pts->data[i][2];
+        if(current_pts->row == (*src_mol).n_atoms){
+          for(int i = 0; i < (*src_mol).n_atoms; i++){
+            (*src_mol).atoms[i].coord.x = current_pts->data[i][0];
+            (*src_mol).atoms[i].coord.y = current_pts->data[i][1];
+            (*src_mol).atoms[i].coord.z = current_pts->data[i][2];
+          }
         }
+        else{
+          matrix *molcc;
+          matrix *new_molcc;
+          NewMatrix(&molcc, (*src_mol).n_atoms, 3);
+          NewMatrix(&new_molcc, (*src_mol).n_atoms, 3);
+          for(int i = 0; i < (*src_mol).n_atoms; i++){
+            molcc->data[i][0] = (*src_mol).atoms[i].coord.x;
+            molcc->data[i][1] = (*src_mol).atoms[i].coord.y;
+            molcc->data[i][2] = (*src_mol).atoms[i].coord.z;
+          }
+
+          ApplyRotation(molcc, R_, t_, new_molcc);
+          dvector *caverage;
+          initDVector(&caverage);
+          MatrixColAverage(new_molcc, caverage);
+
+          for(int i = 0; i < (*src_mol).n_atoms; i++){
+            (*src_mol).atoms[i].coord.x = new_molcc->data[i][0]-caverage->data[0];
+            (*src_mol).atoms[i].coord.y = new_molcc->data[i][1]-caverage->data[1];
+            (*src_mol).atoms[i].coord.z = new_molcc->data[i][2]-caverage->data[2];
+          }
+          DelDVector(&caverage);
+          DelMatrix(&molcc);
+          DelMatrix(&new_molcc);
+        }
+
         SaveMol2Molecule((*src_mol), buf);
       }
       double rmsd = RMSD(current_pts, neigh_pts);
@@ -651,10 +679,9 @@ void get3DAnchorPointsMaxDis(matrix *c, uivector *aidx, size_t npoints, uivector
   * aid is the vector of point to be filled up
   */
 
-  int run = SIGSCIENTIFICRUN;
   uivector *pnt;
   initUIVector(&pnt);
-  MaxDis(c,  npoints, 0, pnt, 4, &run);
+  MaxDis(c,  npoints, 0, pnt, 4);
   PrintMatrix(c);
   UIVectorResize(aid, npoints);
   for(int i = 0; i < pnt->size; i++){
@@ -782,6 +809,7 @@ double Align3DOnVDWShapes(MOLECULE m1, MOLECULE m2, int n_sampling_points)
      */
     initMatrix(&R);
     initDVector(&t);
+
     rmsd = ICP(A, B, 1e-6, R, t, NULL);
     if(rmsd < best_rmsd){
       /* We apply the rotation to this rotation and we save as the best */
@@ -863,6 +891,8 @@ double Align3DPharmacophore(MOLECULE m1,
      * In order to grant to find the right alignment
      * we do max 20 iterations!
      */
+    PrintMatrix(A);
+    PrintMatrix(B);
     initMatrix(&R);
     initDVector(&t);
     rmsd = ICP(A, B, 1e-6, R, t, NULL);

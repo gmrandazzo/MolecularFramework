@@ -46,7 +46,7 @@ int main(int argc, char **argv)
     }
   }
 
-  printf("%s-%s: %f\n", m1.molname, m2.molname, diff);
+  printf("%s, %s-%s, %f\n", argv[2], m1.molname, m2.molname, diff);
   DelVoxel(&f2);
   DelVoxel(&f1);
   DelMolecule(&m1);

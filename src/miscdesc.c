@@ -806,3 +806,14 @@ int GetNetCharge(MOLECULE molecule)
   }
   return charge;
 }
+
+
+double GetTotalPartialCharge(MOLECULE molecule)
+{
+  size_t i;
+  double charge = 0.f;
+  for(i = 0; i < molecule.n_atoms; i++){
+    charge += molecule.atoms[i].charge;
+  }
+  return charge;
+}

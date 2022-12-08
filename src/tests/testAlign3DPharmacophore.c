@@ -62,6 +62,8 @@ int main(int argc, char **argv)
 
 
   double rmsd = Align3DPharmacophore(A, B, aidA, aidB);
+  /*printf("rmsd: %f\n", rmsd);
+  SaveMol2Molecule(A, argv[1]);*/
   printf("TEST ALIGN A 3D PHARMACOPHORES MOLECULE A TO MOLECULE B: ");
   if(rmsd > 0.04 && rmsd <  0.06){
     printf("PASS\n");
@@ -70,7 +72,6 @@ int main(int argc, char **argv)
     printf("FAIL\n");
     abort();
   }
-
   DelUIVector(&aidA);
   DelUIVector(&aidB);
   DelMolecule(&A);

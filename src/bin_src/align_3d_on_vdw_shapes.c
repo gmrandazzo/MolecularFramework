@@ -19,7 +19,7 @@
 
 int main(int argc, char **argv)
 {
-  if(argc == 1){
+  if(argc == 1|| argc != 4){
     printf(" Align a 3D molecule A to a molecule B\n");
     printf("\nUsage %s align_A.mol2 in_B.mol2 [n sampling points]\n\n", argv[0]);
     return -1;

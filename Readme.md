@@ -1,4 +1,11 @@
 # MolecularFramework
+[![Bugs](https://sonarqube.gmrandazzo.com/api/project_badges/measure?project=MolecularFramework&metric=bugs&token=sqb_c6e2dec9b7a0e5032b9496a90e1381a29a05df86)](https://sonarqube.gmrandazzo.com/dashboard?id=MolecularFramework)
+[![Maintainability Rating](https://sonarqube.gmrandazzo.com/api/project_badges/measure?project=MolecularFramework&metric=sqale_rating&token=sqb_c6e2dec9b7a0e5032b9496a90e1381a29a05df86)](https://sonarqube.gmrandazzo.com/dashboard?id=MolecularFramework)
+[![Security Rating](https://sonarqube.gmrandazzo.com/api/project_badges/measure?project=MolecularFramework&metric=security_rating&token=sqb_c6e2dec9b7a0e5032b9496a90e1381a29a05df86)](https://sonarqube.gmrandazzo.com/dashboard?id=MolecularFramework)
+[![Security Hotspots](https://sonarqube.gmrandazzo.com/api/project_badges/measure?project=MolecularFramework&metric=security_hotspots&token=sqb_c6e2dec9b7a0e5032b9496a90e1381a29a05df86)](https://sonarqube.gmrandazzo.com/dashboard?id=MolecularFramework)
+[![Vulnerabilities](https://sonarqube.gmrandazzo.com/api/project_badges/measure?project=MolecularFramework&metric=vulnerabilities&token=sqb_c6e2dec9b7a0e5032b9496a90e1381a29a05df86)](https://sonarqube.gmrandazzo.com/dashboard?id=MolecularFramework)
+![Page views](https://visitor-badge.glitch.me/badge?page_id=gmrandazzo.MolecularFramework)
+![Page views](https://visitor-badge.glitch.me/badge?page_id=gmrandazzo.MolecularFramework)
 
 MolecularFramework is a c/c++ cheminformatic 3D modeling library to
 speed up drug discovery.
@@ -11,9 +18,8 @@ speed up drug discovery.
 | Pharmacophore Superposition | VDW Shape Superposition |
 | --------------------------- |:-----------------------:|
 |![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_Pharmacophore_Aligment.gif)|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_VDWShape_Aligmnent.gif)|
-| Electrostatic Potential     |                         |
-| --------------------------- |:-----------------------:|
-|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/EpotCalc.gif)| |
+| Electrostatic Potential     |
+|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/EpotCalc.gif)|
 
 
 3D visualizations made using VMD

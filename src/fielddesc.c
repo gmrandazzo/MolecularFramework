@@ -278,17 +278,15 @@ double RatioFieldValue(matrix *field_a, matrix *field_b, double min, double max)
  */
 double DipoleFieldValue(matrix *field, double min, double max)
 {
- size_t i, npnt;
+ size_t i;
  double upntx, upnty, upntz;
 
  upntx = upnty = upntz = 0.f;
- npnt = 0;
  for(i = 0; i < field->row; i++){
    if(field->data[i][3] > min && field->data[i][3] < max){
      upntx += field->data[i][0]*field->data[i][3];
      upnty += field->data[i][1]*field->data[i][3];
      upntz += field->data[i][2]*field->data[i][3];
-     npnt++;
    }
    else
      continue;
