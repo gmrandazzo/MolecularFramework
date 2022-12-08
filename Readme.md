@@ -11,7 +11,14 @@ speed up drug discovery.
 | Pharmacophore Superposition | VDW Shape Superposition |
 | --------------------------- |:-----------------------:|
 |![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_Pharmacophore_Aligment.gif)|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/ICP_VDWShape_Aligmnent.gif)|
+| Electrostatic Potential     |                         |
+| using point-charge approach |                         |
+| --------------------------- |:-----------------------:|
+|![Alt Text](https://raw.githubusercontent.com/gmrandazzo/MolecularFramework/master/doc/files/EpotCalc.gif)| |
 
+
+3D visualizations made using VMD
+[http://www.ks.uiuc.edu/Research/vmd/](http://www.ks.uiuc.edu/Research/vmd/)
 
 
 Changelog

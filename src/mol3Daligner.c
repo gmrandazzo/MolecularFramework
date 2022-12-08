@@ -655,7 +655,7 @@ void get3DAnchorPointsMaxDis(matrix *c, uivector *aidx, size_t npoints, uivector
   uivector *pnt;
   initUIVector(&pnt);
   MaxDis(c,  npoints, 0, pnt, 4, &run);
-
+  PrintMatrix(c);
   UIVectorResize(aid, npoints);
   for(int i = 0; i < pnt->size; i++){
     aid->data[i] = aidx->data[pnt->data[i]];
