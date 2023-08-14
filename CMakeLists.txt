@@ -53,7 +53,12 @@ include_directories("/usr/lib" "/usr/local/include" ${LIBSCIENTIFIC_INCLUDE_DIR}
 
 #include_directories(${RDKIT_INCLUDE_DIR})
 
-INCLUDE(Dart)
+if(cmake_build_type_tolower STREQUAL "debug")
+  include(Dart)
+  cmake_policy(SET CMP0145 OLD)
+  enable_testing()
+endif()
+
 
 add_subdirectory(src)
 
