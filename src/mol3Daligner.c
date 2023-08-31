@@ -54,7 +54,7 @@ void mk3drotx(double theta, matrix *xr)
 void mk3droty(double theta, matrix *yr)
 {
   ResizeMatrix(yr, 4, 4);
-  yr->data[0][0] = yr->data[1][1] = yr->data[2][2] = yr->data[3][3] = 1.f;
+  yr->data[1][1] = yr->data[2][2] = yr->data[3][3] = 1.f;
   yr->data[0][0] = cos(theta); yr->data[0][2] = -sin(theta);
   yr->data[2][0] = sin(theta); yr->data[2][2] = cos(theta);
 }
@@ -65,7 +65,7 @@ void mk3droty(double theta, matrix *yr)
 void mk3drotz(double theta, matrix *zr)
 {
   ResizeMatrix(zr, 4, 4);
-  zr->data[0][0] = zr->data[1][1] = zr->data[2][2] = zr->data[3][3] = 1.f;
+  zr->data[1][1] = zr->data[2][2] = zr->data[3][3] = 1.f;
   zr->data[0][0] = cos(theta); zr->data[0][1] = -sin(theta);
   zr->data[1][0] = sin(theta); zr->data[1][1] = cos(theta);
 }

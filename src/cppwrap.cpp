@@ -227,9 +227,6 @@ static int GetFPPosition(MOLECULE *molecule, int k){
   else if(strcmp(atomsym, "O") == 0 && molecule->atoms[k].ainfo.hybrid == SP3){
     return o_sp3;
   }
-  else if(strcmp(atomsym, "O") == 0 && molecule->atoms[k].ainfo.hybrid == SP3){
-    return o_sp3;
-  }
   else if(strcmp(atomsym, "P") == 0){
     return p;
   }

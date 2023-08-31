@@ -529,9 +529,6 @@ double getExactAtomWeightfromAtomName(char *_atom){
   else if(strcmp(atom, "Mo") == 0){
     return 97.905404820000;
   }
-  else if(strcmp(atom, "Ti") == 0){
-    return 47.947941980000;
-  }
   else if(strcmp(atom, "V") == 0){
     return 50.943957040000;
   }
@@ -773,10 +770,6 @@ void getVanDerWaalsParams(char *_atom, double *D_ii, double *x_ii)
   else if(strcmp(atom, "Cu") == 0){
     (*D_ii) = 0.005;
     (*x_ii) = 3.495;
-  }
-  else if(strcmp(atom, "Ag") == 0){
-    (*D_ii) = 0.036;
-    (*x_ii) = 3.148;
   }
   else if(strcmp(atom, "Zn") == 0){
     (*D_ii) = 0.124;

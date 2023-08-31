@@ -56,24 +56,23 @@ void GetMolecularFormula(MOLECULE molecule, char** mformula)
   (*mformula) = malloc(sizeof(char)*200);
   const int ntable = RelAtomicMassTableSize();
   char **aa = malloc(sizeof(char*)*ntable);
-  for(i = 0; i < ntable; i++){
-    aa[i] = malloc(sizeof(char)*3);
-  }
   int *nn = malloc(sizeof(int)*ntable);
+  
+  /*Inizialize the atom types with the most common one*/
+  aa[0] = strdup("C");
+  aa[1] = strdup("H");
+  aa[2] = strdup("N");
+  aa[3] = strdup("P");
+  aa[4] = strdup("O");
+  aa[5] = strdup("S");
+  aa[6] = strdup("B");
+  aa[7] = strdup("F");
+  aa[8] = strdup("Cl");
+  aa[9] = strdup("Br");
+  aa[10] = strdup("I");
+  aa[11] = strdup("Si");
 
-  strcpy(aa[0], "C");
-  strcpy(aa[1], "H");
-  strcpy(aa[2], "N");
-  strcpy(aa[3], "P");
-  strcpy(aa[4], "O");
-  strcpy(aa[5], "S");
-  strcpy(aa[6], "B");
-  strcpy(aa[7], "F");
-  strcpy(aa[8], "Cl");
-  strcpy(aa[9], "Br");
-  strcpy(aa[10], "I");
-  strcpy(aa[11], "Si");
-
+  /*Fill the others*/
   j = 12;
   for(i = 0; i < ntable; i++){
     nn[i] = 0;
@@ -91,7 +90,7 @@ void GetMolecularFormula(MOLECULE molecule, char** mformula)
       strcmp(atom_, aa[9]) != 0 &&
       strcmp(atom_, aa[10]) != 0 &&
       strcmp(atom_, aa[11]) != 0){
-      strcpy(aa[j], atom_);
+        aa[j] = strdup(atom_);
       j++;
     }
     else{

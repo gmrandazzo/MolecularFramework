@@ -45,7 +45,7 @@ double GetAngle(POINT p1, POINT p2, POINT c)
   n = (square(p1c) + square(p2c) - square(p1p2));
   d = (2*p1c*p2c);
 
-  if(FLOAT_EQ(p1c, 0.f, 1e-5) || FLOAT_EQ(p1c, 0.f, 1e-5)){
+  if(FLOAT_EQ(p1c, 0.f, 1e-5) || FLOAT_EQ(p2c, 0.f, 1e-5)){
     /*Atoms in the same plane*/
     return _pi_;
   }

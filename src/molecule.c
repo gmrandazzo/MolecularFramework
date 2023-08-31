@@ -86,11 +86,10 @@ static inline void Mol2NameFill(int i, int j, char *tl, MOLECULE *molecule)
   }
 }
 
-static inline char *getAtomSymbol(char *atomtype)
+void getAtomSymbol(char *atomtype, char **atomsymbl)
 {
-  char *atom = strdup(atomtype);
-  atom = strtok(atom, ".");
-  return atom;
+  (*atomsymbl) = strdup(atomtype);
+  (*atomsymbl) = strtok((*atomsymbl), ".");
 }
 
 static inline void Mol2AtomFill( int i, int j, char *tl, MOLECULE *molecule)
@@ -115,7 +114,8 @@ static inline void Mol2AtomFill( int i, int j, char *tl, MOLECULE *molecule)
   else if( j == 5 ){
 //     printf("atom type/symbol : %s\n",tl);
     strcpy(molecule->atoms[i].type, tl);
-    char *atomsymbl = getAtomSymbol(tl);
+    char *atomsymbl = NULL;
+    getAtomSymbol(tl, &atomsymbl);
     strcpy(molecule->atoms[i].asymbl, atomsymbl);
     free(atomsymbl);
     /*sscanf(tl, "%s", molecule->atoms[i].type);*/

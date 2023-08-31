@@ -280,10 +280,8 @@ int GetCCDoubleBonds(MOLECULE molecule)
     if(strcmp(molecule.bonds[i].type, "2") == 0){
       int oi = molecule.bonds[i].origin_atom_id;
       int ti = molecule.bonds[i].target_atom_id;
-      if((strcmp(molecule.atoms[oi].asymbl, "C") == 0 &&
-          strcmp(molecule.atoms[ti].asymbl, "C") == 0) ||
-         (strcmp(molecule.atoms[oi].asymbl, "C") == 0 &&
-          strcmp(molecule.atoms[ti].asymbl, "C") == 0) ){
+      if(strcmp(molecule.atoms[oi].asymbl, "C") == 0 &&
+         strcmp(molecule.atoms[ti].asymbl, "C") == 0){
         n += 1;
       }
       else{
@@ -330,10 +328,8 @@ int GetNNNDoubleBonds(MOLECULE molecule)
     if(strcmp(molecule.bonds[i].type, "2") == 0){
       int oi = molecule.bonds[i].origin_atom_id;
       int ti = molecule.bonds[i].target_atom_id;
-      if((strcmp(molecule.atoms[oi].asymbl, "N") == 0 &&
-          strcmp(molecule.atoms[ti].asymbl, "N") == 0) ||
-         (strcmp(molecule.atoms[oi].asymbl, "N") == 0 &&
-          strcmp(molecule.atoms[ti].asymbl, "N") == 0) ){
+      if(strcmp(molecule.atoms[oi].asymbl, "N") == 0 &&
+         strcmp(molecule.atoms[ti].asymbl, "N") == 0){
         n += 1;
       }
       else{
@@ -430,10 +426,8 @@ int GetCCTripleBonds(MOLECULE molecule)
     if(strcmp(molecule.bonds[i].type, "3") == 0){
       int oi = molecule.bonds[i].origin_atom_id;
       int ti = molecule.bonds[i].target_atom_id;
-      if((strcmp(molecule.atoms[oi].asymbl, "C") == 0 &&
-          strcmp(molecule.atoms[ti].asymbl, "C") == 0) ||
-         (strcmp(molecule.atoms[oi].asymbl, "C") == 0 &&
-          strcmp(molecule.atoms[ti].asymbl, "C") == 0) ){
+      if(strcmp(molecule.atoms[oi].asymbl, "C") == 0 &&
+         strcmp(molecule.atoms[ti].asymbl, "C") == 0){
         n += 1;
       }
       else{

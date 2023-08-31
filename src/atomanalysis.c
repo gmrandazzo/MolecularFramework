@@ -784,19 +784,18 @@ void ApplyKekuleDB(MOLECULE *molecule, uivector *ring_id, uivector *db_id)
 
 void Kekulize(MOLECULE *molecule)
 {
-  int i;
-  size_t j, k, it;
+  size_t i, j, k, it;
   uivector *ring_id;
   uivector *priority, *tmp_priority;
   uivector *db_id, *final_db_id;
   uivector *bonds, *tmp_bonds;
 
-
   size_t n_urings;
   RINGS *urings;
   univoque_ar_rings(molecule, &urings, &n_urings);
 
-  /* Filtered urings */
+  i = 0; j = 0; k = 0; it = 0;
+  /* Filtered urings  */
   printf("Filtered ring..\n");
   for(i = 0; i < n_urings; i++){
     for(j = 0; j < urings[i].size; j++){
